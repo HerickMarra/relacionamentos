@@ -1,0 +1,142 @@
+
+*{
+    font-family: "Inter", sans-serif;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.areaLogin{
+    width: clamp(200px, 100%, 600px);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.areaLoginAuth{
+    width: clamp(200px, 100%, 600px);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.areaLoginAuth .name{
+    margin-top: 20px;
+    font-weight: 800;
+}
+
+
+
+.userLogin{
+    width: 161px;
+    height: 143px;
+    background-color: #fff;
+    filter: drop-shadow(1px 1px 43px rgba(0, 0, 0, 0.222));
+    display: flex;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.userLogin .name{
+    margin-top: 20px;;
+}
+
+
+.profile{
+    width: 70px;
+    height: 70px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 100%;
+    margin: 0 auto;
+}
+
+
+.inputAuth{
+    border-radius: 6px;
+    background-color: #fff;
+    padding: 10px 7px;
+    border: none;
+    filter: drop-shadow(1px 1px 15px rgba(0, 0, 0, 0.208));
+    margin: 10px 0;
+    width: clamp(40px, 100%, 245px);
+
+}
+
+
+.btnAuth{
+    border: none;
+    border-radius: 5px;
+    background-color: #0094FF;
+    color: #fff;
+    padding: 8px 25px;
+    font-weight: 800;
+    margin: 10px 0;
+}
+
+
+.formAuth{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
+
+
+
+
+/* LOAD */
+
+.areaLoad{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loader {
+    position: relative;
+    width: 64px;
+    height: 64px;
+  }
+
+  .loader div {
+    position: absolute;
+    border: 4px solid #454ade;
+    border-radius: 50%;
+    animation: loader8435 1s ease-out infinite;
+  }
+
+  .loader div:nth-child(2) {
+    animation-delay: -0.5s;
+  }
+
+  @keyframes loader8435 {
+    0% {
+      top: 32px;
+      left: 32px;
+      width: 0;
+      height: 0;
+      opacity: 1;
+    }
+
+    100% {
+      top: 0;
+      left: 0;
+      width: 64px;
+      height: 64px;
+      opacity: 0;
+    }
+  }
+
+
