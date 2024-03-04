@@ -8,6 +8,6 @@ use Illuminate\Http\Request;
 class PainelController extends Controller
 {
     public function index(){
-        return 'oi';
+        return view('painel.index');
     }
 }

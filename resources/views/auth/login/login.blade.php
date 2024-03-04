@@ -71,7 +71,6 @@
             $('.areaLoginAuth').show();
         }
 
-        $
         $('.formAuth').submit(function(event){
             event.preventDefault();
             $('.area').hide();

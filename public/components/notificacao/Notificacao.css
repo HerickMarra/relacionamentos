@@ -1,0 +1,47 @@
+:root {
+    --x-notficacaoTamanho: 50px; /* Define o tamanho do componente */
+}
+
+.x-notificacao{
+    width: 100%;
+    height: calc(var(--x-notficacaoTamanho)*1.5);
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.x-notificacao .notfy{
+    width: var(--x-notficacaoTamanho);
+    height: var(--x-notficacaoTamanho);
+    background-color: #fff;
+    filter: drop-shadow(1px 1px 10px rgba(0, 0, 0, 0.411));
+    margin-right: calc(var(--x-notficacaoTamanho)/3);
+    border-radius: 25%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.x-notificacao .notfy i{
+    color: #CC0F0F;
+    font-size: calc(var(--x-notficacaoTamanho)/1.8);
+}
+
+
+
+.x-notificacao .notfy .countNotfy{
+    position: absolute;
+    right: calc(var(--x-notficacaoTamanho)/5*-1);
+    bottom: calc(var(--x-notficacaoTamanho)/5*-1);
+    width: calc(var(--x-notficacaoTamanho)/2);
+    height: calc(var(--x-notficacaoTamanho)/2);
+    background-color: #CC0F0F;
+    border-radius: 25%;
+    display: flex;
+    color: #fff;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+}

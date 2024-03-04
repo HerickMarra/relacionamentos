@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\app\NotificationController;
 use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\painel\PainelController;
 use Illuminate\Support\Facades\Route;
@@ -34,3 +35,11 @@ Route::group([
 });
 
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+
+
+Route::group([
+    'prefix' => '/notification',
+], function () {
+    Route::get('/count', [NotificationController::class, 'count'])->middleware('auth')->name('get.notification.count');
+    // Route::post('/', [LoginController::class, 'login'])->name('loginAuth');
+});
