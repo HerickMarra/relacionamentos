@@ -12,7 +12,11 @@
 <body>
     <div class="areaMobile">
         <x-Notificacao/>
+        <x-medidor/>
+        <x-ButtonsPainel/>
+        <x-MarcadoresFixo/>
     </div>
+
 
     @include('painel.importsScript')
 </body>

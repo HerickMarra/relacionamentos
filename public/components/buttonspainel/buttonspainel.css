@@ -1,0 +1,20 @@
+.x-buttonspainel{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 350px;
+    margin: 50px auto 0 auto;
+}
+
+.x-buttonspainel-btn{
+    width: 82px;
+    height: 82px;
+    background-color: #fff;
+    filter: drop-shadow(1px 1px 10px rgba(0, 0, 0, 0.342));
+    border-radius: 12px;
+    font-size: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+}

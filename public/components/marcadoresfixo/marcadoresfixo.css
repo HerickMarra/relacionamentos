@@ -1,0 +1,42 @@
+.x-MarcadoresFixo{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 15px;
+    z-index: 100;
+}
+
+
+.x-MarcadoresFixo-areaBtn{
+    width: 141px;
+    height: 44px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    filter: drop-shadow(1px 1px 10px rgba(0, 0, 0, 0.342));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.x-MarcadoresFixo-areaBtn-btn{
+    width: 32px;
+    height: 32px;
+    color: #fff;
+    margin: 0 5px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.x-MarcadoresFixo-areaBtn-btn:nth-child(1){
+    background-color: #3BB900;
+}
+.x-MarcadoresFixo-areaBtn-btn:nth-child(2){
+    background-color: #FC1A1A;
+}
+.x-MarcadoresFixo-areaBtn-btn:nth-child(3){
+    background-color: #FFB800;
+}
