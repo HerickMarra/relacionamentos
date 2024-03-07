@@ -30,8 +30,9 @@ Route::group([
 
 Route::group([
     'prefix' => '/painel',
+    'middleware' => ['auth','lastlogin']
 ], function () {
-    Route::get('/', [PainelController::class, 'index'])->middleware('auth')->name('painel');
+    Route::get('/', [PainelController::class, 'index'])->name('painel');
 });
 
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
@@ -39,6 +40,7 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::group([
     'prefix' => '/notification',
+    'middleware' => ['auth','lastlogin']
 ], function () {
     Route::get('/count', [NotificationController::class, 'count'])->middleware('auth')->name('get.notification.count');
     // Route::post('/', [LoginController::class, 'login'])->name('loginAuth');

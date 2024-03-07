@@ -12,6 +12,7 @@
 <body>
     <div class="areaMobile">
         <x-Notificacao/>
+        <x-StatusOnline/>
         <x-medidor/>
         <x-ButtonsPainel/>
         <x-MarcadoresFixo/>
