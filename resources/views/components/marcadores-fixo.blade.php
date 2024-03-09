@@ -62,8 +62,7 @@
 
         <div class="x-MarcadoresFixo-Modal-Container-Desc-Inpt">
             <label for="" class="x-MarcadoresFixo-Text">Adicionar descrição</label>
-            <textarea name="" id="" cols="30" rows="10">
-            </textarea>
+            <textarea name="" id="" cols="30" rows="10"></textarea>
         </div>
 
         <div class="x-MarcadoresFixo-Modal-Container-Send">
