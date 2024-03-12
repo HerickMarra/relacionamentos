@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\app\EmotionController;
+use App\Http\Controllers\app\IndicatorController;
 use App\Http\Controllers\app\NotificationController;
 use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\painel\PainelController;
@@ -43,5 +45,14 @@ Route::group([
     'middleware' => ['auth','lastlogin']
 ], function () {
     Route::get('/count', [NotificationController::class, 'count'])->middleware('auth')->name('get.notification.count');
+    // Route::post('/', [LoginController::class, 'login'])->name('loginAuth');
+});
+
+
+Route::group([
+    'prefix' => '/indicators',
+    'middleware' => ['auth','lastlogin']
+], function () {
+    Route::post('/create', [EmotionController::class, 'createEmotion'])->middleware('auth')->name('indicator.create');
     // Route::post('/', [LoginController::class, 'login'])->name('loginAuth');
 });

@@ -3,15 +3,15 @@
 <div class="x-MarcadoresFixo">
     <div class="x-MarcadoresFixo-areaBtn">
 
-        <div onclick="abrirModal('Green','')" class="x-MarcadoresFixo-areaBtn-btn ">
+        <div onclick="MarcadoresFixoAbrirModal('Green','happy')" class="x-MarcadoresFixo-areaBtn-btn ">
             <i class="bi bi-emoji-heart-eyes-fill"></i>
         </div>
 
-        <div onclick="abrirModal('Danger','')" class="x-MarcadoresFixo-areaBtn-btn">
+        <div onclick="MarcadoresFixoAbrirModal('Danger','serious')" class="x-MarcadoresFixo-areaBtn-btn">
             <i class="bi bi-exclamation-octagon-fill"></i>
         </div>
 
-        <div onclick="abrirModal('Alert','')" class="x-MarcadoresFixo-areaBtn-btn">
+        <div onclick="MarcadoresFixoAbrirModal('Alert','alert')" class="x-MarcadoresFixo-areaBtn-btn">
             <i class="bi bi-exclamation-triangle-fill"></i>
         </div>
 
@@ -25,7 +25,7 @@
 
     <div class="x-MarcadoresFixo-Modal-Container">
         <div class="modalExit">
-            <button onclick="exitModal()">X</button>
+            <button onclick="MarcadoresFixoExitModal()">X</button>
         </div>
 
         <div class="x-MarcadoresFixo-Modal-Container-Indicador ">
@@ -45,28 +45,28 @@
         <p class="x-MarcadoresFixo-Modal-Container-Desc x-MarcadoresFixo-Text">Atribua uma pontuação de 0 a 10, com base em sua avaliação geral</p>
 
         <div class="x-MarcadoresFixo-Modal-Container-Indicador-Contadores">
-            <div class="x-MarcadoresFixo-Contador">1</div>
-            <div class="x-MarcadoresFixo-Contador">2</div>
-            <div class="x-MarcadoresFixo-Contador">3</div>
-            <div class="x-MarcadoresFixo-Contador">4</div>
-            <div class="x-MarcadoresFixo-Contador">5</div>
+            <div class="x-MarcadoresFixo-Contador MFC1" onclick="MarcadoresFixoSetMedidor(1)">1</div>
+            <div class="x-MarcadoresFixo-Contador MFC2" onclick="MarcadoresFixoSetMedidor(2)">2</div>
+            <div class="x-MarcadoresFixo-Contador MFC3" onclick="MarcadoresFixoSetMedidor(3)">3</div>
+            <div class="x-MarcadoresFixo-Contador MFC4" onclick="MarcadoresFixoSetMedidor(4)">4</div>
+            <div class="x-MarcadoresFixo-Contador MFC5" onclick="MarcadoresFixoSetMedidor(5)">5</div>
         </div>
 
         <div class="x-MarcadoresFixo-Modal-Container-Indicador-Contadores">
-            <div class="x-MarcadoresFixo-Contador">6</div>
-            <div class="x-MarcadoresFixo-Contador">7</div>
-            <div class="x-MarcadoresFixo-Contador">8</div>
-            <div class="x-MarcadoresFixo-Contador">9</div>
-            <div class="x-MarcadoresFixo-Contador">10</div>
+            <div class="x-MarcadoresFixo-Contador MFC6" onclick="MarcadoresFixoSetMedidor(6)">6</div>
+            <div class="x-MarcadoresFixo-Contador MFC7" onclick="MarcadoresFixoSetMedidor(7)">7</div>
+            <div class="x-MarcadoresFixo-Contador MFC8" onclick="MarcadoresFixoSetMedidor(8)">8</div>
+            <div class="x-MarcadoresFixo-Contador MFC9" onclick="MarcadoresFixoSetMedidor(9)">9</div>
+            <div class="x-MarcadoresFixo-Contador MFC10" onclick="MarcadoresFixoSetMedidor(10)">10</div>
         </div>
 
         <div class="x-MarcadoresFixo-Modal-Container-Desc-Inpt">
             <label for="" class="x-MarcadoresFixo-Text">Adicionar descrição</label>
-            <textarea name="" id="" cols="30" rows="10"></textarea>
+            <textarea name="x-MarcadoresFixo-Desc-Input" id="x-MarcadoresFixo-Desc-Input" cols="30" rows="10"></textarea>
         </div>
 
         <div class="x-MarcadoresFixo-Modal-Container-Send">
-            <button class="x-MarcadoresFixo-Green">ENVIAR</button>
+            <button onclick="MarcadoresFixoSave('{{csrf_token()}}')" class="x-MarcadoresFixo-Submit x-MarcadoresFixo-Green">ENVIAR</button>
         </div>
 
     </div>
