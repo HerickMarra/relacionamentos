@@ -37,6 +37,7 @@ function MarcadoresFixoSave(_token){
             emotion : {
                 description : $('#x-MarcadoresFixo-Desc-Input').val(),
                 level: medidorLevel,
+                visible: $('#x-MarcadoresFixo-Desc-Visivel-input').is(':checked'),
                 emotion: X_MarcadorFixo_emotion
             }
         }, // Dados do formulário a serem enviados

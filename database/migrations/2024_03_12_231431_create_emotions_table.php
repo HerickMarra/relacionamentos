@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('emotions', function (Blueprint $table) {
             $table->id();
             $table->enum('emotion', ['happy', 'alert' ,'serious'])->default('happy');
+            $table->enum('visible', ['true', 'false'])->default('true');
             $table->integer('level');
             $table->text('description')->nullable();
             $table->unsignedBigInteger('user_id');

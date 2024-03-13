@@ -65,6 +65,14 @@
             <textarea name="x-MarcadoresFixo-Desc-Input" id="x-MarcadoresFixo-Desc-Input" cols="30" rows="10"></textarea>
         </div>
 
+        <div class="x-MarcadoresFixo-Desc-Visivel">
+            <label style="height: 10px;" class="checkbox-container">
+                <input class="custom-checkbox" id="x-MarcadoresFixo-Desc-Visivel-input" checked="" type="checkbox">
+                <span class="checkmark"></span>
+            </label>
+            <label class="x-MarcadoresFixo-Desc-Visivel-label" for="">Descrição visivel</label>
+        </div>
+
         <div class="x-MarcadoresFixo-Modal-Container-Send">
             <button onclick="MarcadoresFixoSave('{{csrf_token()}}')" class="x-MarcadoresFixo-Submit x-MarcadoresFixo-Green">ENVIAR</button>
         </div>

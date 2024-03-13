@@ -13,6 +13,7 @@ class Emotion extends Model
         'emotion',
         'description',
         'level',
-        'user_id'
+        'user_id',
+        'visible'
     ];
 }
