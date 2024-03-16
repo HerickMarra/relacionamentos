@@ -2,8 +2,10 @@
 
 <div class="x-buttonspainel">
     @foreach ($buttons as $btn)
-        <div style="color: {{$btn['color']}}" class="x-buttonspainel-btn">
-            <i class="{{$btn['icon']}}"></i>
-        </div>
+        <a href="{{$btn['link']}}">
+            <div style="color: {{$btn['color']}}" class="x-buttonspainel-btn">
+                <i class="{{$btn['icon']}}"></i>
+            </div>
+        </a>
     @endforeach
 </div>

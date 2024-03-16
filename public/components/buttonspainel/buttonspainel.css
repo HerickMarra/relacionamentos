@@ -9,8 +9,8 @@
 .x-buttonspainel-btn{
     width: 82px;
     height: 82px;
-    background-color: #fff;
-    filter: drop-shadow(1px 1px 10px rgba(0, 0, 0, 0.342));
+    background-color: var(--subBackground);
+    filter: var(--sombra);
     border-radius: 12px;
     font-size: 40px;
     display: flex;

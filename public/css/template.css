@@ -1,6 +1,44 @@
 
 
 
+/* Flex */
+.flexCenter-c{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.flexCenter-r{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+/* Flex */
+
+
+
+
+
+
+
+/* Areas Mobile */
+
+
+.areaMobile{
+    height: 100vh;
+    width: clamp(200px, 100%, 600px);
+    background-color: var(--background);
+}
+
+
+
+/* Areas Mobile */
+
+
+
+
 
 
 

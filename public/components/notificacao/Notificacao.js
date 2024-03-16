@@ -1,7 +1,12 @@
 
 
+let x_notificacao_aba = null;//Elemnto da aba de notificação
+
+
 document.addEventListener('DOMContentLoaded', function() {
-    setInterval(atualizarNot, 6000)
+    setInterval(atualizarNot, 6000);
+    x_notificacao_aba = $('#x-notificacao-aba');
+    x_notificacao_aba.appendTo('.areaMobile');
 });
 
 
@@ -20,4 +25,14 @@ function atualizarNot(){
         .fail(function(data) {
 
         });
+}
+
+
+
+function x_notificacao_abrir_aba(){
+    x_notificacao_aba.fadeIn();
+}
+
+function x_notificacao_fechar_aba(){
+    x_notificacao_aba.fadeOut();
 }

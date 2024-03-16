@@ -5,6 +5,7 @@ use App\Http\Controllers\app\IndicatorController;
 use App\Http\Controllers\app\NotificationController;
 use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\painel\PainelController;
+use App\Http\Controllers\painel\RecordController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -53,6 +54,17 @@ Route::group([
     'prefix' => '/indicators',
     'middleware' => ['auth','lastlogin']
 ], function () {
+    Route::post('/create', [EmotionController::class, 'createEmotion'])->middleware('auth')->name('indicator.create');
+    // Route::post('/', [LoginController::class, 'login'])->name('loginAuth');
+});
+
+
+Route::group([
+    'prefix' => '/record',
+    'middleware' => ['auth','lastlogin']
+], function () {
+    Route::get('/', [RecordController::class, 'index'])->middleware('auth')->name('record');
+
     Route::post('/create', [EmotionController::class, 'createEmotion'])->middleware('auth')->name('indicator.create');
     // Route::post('/', [LoginController::class, 'login'])->name('loginAuth');
 });

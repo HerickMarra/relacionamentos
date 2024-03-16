@@ -23,33 +23,39 @@ class ButtonsPainel extends Component
     {
         $buttons = [
                 [
-                    "color" => "#FFB800",
-                    "icon" =>  "bi bi-card-list", 
+                    'color' => "#FFB800",
+                    'icon' =>  "bi bi-card-list",
+                    'link' => ''
                 ],
                 [
-                    "color" => "#FF5C00",
-                    "icon" =>  "bi bi-images", 
+                    'color' => "#FF5C00",
+                    'icon' =>  "bi bi-images",
+                    'link' => '/record'
                 ],
                 [
-                    "color" => "#0494E4",
-                    "icon" =>  "bi bi-calendar-range", 
+                    'color' => "#0494E4",
+                    'icon' =>  "bi bi-calendar-range",
+                    'link' => ''
                 ],
                 [
-                    "color" => "#4BB739",
-                    "icon" =>  "bi bi-x-diamond-fill", 
+                    'color' => "#4BB739",
+                    'icon' =>  "bi bi-x-diamond-fill",
+                    'link' => ''
                 ],
                 [
-                    "color" => "#0494E4",
-                    "icon" =>  "bi bi-gift-fill", 
+                    'color' => "#0494E4",
+                    'icon' =>  "bi bi-gift-fill",
+                    'link' => ''
                 ],
                 [
-                    "color" => "#FF5C00",
-                    "icon" =>  "bi bi-bar-chart-line", 
+                    'color' => "#FF5C00",
+                    'icon' =>  "bi bi-bar-chart-line",
+                    'link' => ''
                 ],
-                
+
             ];
 
-            
+
 
         return view('components.buttons-painel', compact('buttons'));
     }

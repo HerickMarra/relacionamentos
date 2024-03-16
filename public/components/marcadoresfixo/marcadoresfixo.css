@@ -1,5 +1,5 @@
 .x-MarcadoresFixo{
-    width: 100%;
+    width: clamp(200px, 100%, 600px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -12,9 +12,9 @@
 .x-MarcadoresFixo-areaBtn{
     width: 141px;
     height: 44px;
-    background-color: rgb(255, 255, 255);
+    background-color: var(--subBackground);
     border-radius: 10px;
-    filter: drop-shadow(1px 1px 10px rgba(0, 0, 0, 0.342));
+    filter: var(--sombra);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -60,7 +60,7 @@
 .x-MarcadoresFixo-Modal-Container{
     width: 336px;
     height: 510px;
-    background-color: #fff;
+    background-color: var(--background);
     border-radius: 6px;
 }
 
@@ -80,7 +80,7 @@
     align-items: center;
     justify-content: center;
     border-radius: 12px;
-    filter: drop-shadow(1px 1px 30px rgba(0, 0, 0, 0.17));
+    filter: var(--sombra);
 }
 
 .x-MarcadoresFixo-Alert{
@@ -94,7 +94,7 @@
     background-color: #CD1616;
 }
 .x-MarcadoresFixo-Danger-p{
-    color: #CD1616;
+    color: #fe3030;
 }
 
 .x-MarcadoresFixo-Green{
@@ -107,11 +107,11 @@
 
 
 .x-MarcadoresFixo-Modal-Container-Desc{
-    font-size: 13px;
+    font-size: 15px;
     text-align: center;
     width: 256px;
     margin: 0 auto;
-    font-weight: 900;
+    font-weight: 500;
     margin-top: 10px;
 }
 
@@ -127,9 +127,9 @@
 .x-MarcadoresFixo-Contador{
     width: 40px;
     height: 40px;
-    background-color: #fff;
-    color: black;
-    filter: drop-shadow(1px 1px 9px rgba(0, 0, 0, 0.25));
+    background-color: var(--subBackground);
+    color: rgb(255, 255, 255);
+    filter: var(--sombra);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -140,7 +140,7 @@
 
 .x-MarcadoresFixo-Contador-Active{
     transform: scale(1.2);
-    border: 1px solid rgb(173, 173, 173);
+    background-color: var(--subBackground-s);
 }
 
 
@@ -199,4 +199,5 @@
 .x-MarcadoresFixo-Desc-Visivel-label{
     font-size: 10px;
     height: 10px;
+    color: var(--text-color);
 }
