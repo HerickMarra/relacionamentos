@@ -46,6 +46,7 @@ Route::group([
     'middleware' => ['auth','lastlogin']
 ], function () {
     Route::get('/count', [NotificationController::class, 'count'])->middleware('auth')->name('get.notification.count');
+    Route::get('/itens', [NotificationController::class, 'getItens'])->middleware('auth')->name('get.notification.itens');
     // Route::post('/', [LoginController::class, 'login'])->name('loginAuth');
 });
 

@@ -28,6 +28,8 @@ body{
 .areaLoginAuth .name{
     margin-top: 20px;
     font-weight: 800;
+    color: #fff;
+
 }
 
 
@@ -35,8 +37,8 @@ body{
 .userLogin{
     width: 161px;
     height: 143px;
-    background-color: #fff;
-    filter: drop-shadow(1px 1px 43px rgba(0, 0, 0, 0.222));
+    background-color: var(--subBackground);
+    filter: var(--sombra);
     display: flex;
     border-radius: 10px;
     align-items: center;
@@ -45,7 +47,9 @@ body{
 }
 
 .userLogin .name{
-    margin-top: 20px;;
+    margin-top: 20px;
+    color: var(--text-color);
+
 }
 
 
@@ -61,7 +65,8 @@ body{
 
 .inputAuth{
     border-radius: 6px;
-    background-color: #fff;
+    background-color: var(--subBackground);
+    color: var(--text-color);
     padding: 10px 7px;
     border: none;
     filter: drop-shadow(1px 1px 15px rgba(0, 0, 0, 0.208));

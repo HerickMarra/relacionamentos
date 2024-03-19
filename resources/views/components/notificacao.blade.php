@@ -14,10 +14,15 @@
     <div class="x-notificacao-aba-actions">
         <i onclick="x_notificacao_fechar_aba()" class="bi bi-arrow-left"></i> <p>Notificações</p>
     </div>
+
+    <div class="x-notificacao-aba-notify-area" id="x-notificacao-aba-notify-area">
+
+    </div>
 </div>
 
 <script>
     // Url de atualização de notificações
     let X_notificacao_URLAtualizar = '{{route('get.notification.count')}}';
+    let X_notificacao_URLGet = '{{route('get.notification.itens')}}';
 </script>
 <script src="{{ asset('components/notificacao/Notificacao.js') }}"></script>
