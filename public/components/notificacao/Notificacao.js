@@ -9,17 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     x_notificacao_aba.appendTo('.areaMobile');
 
 
-    $('#x-notificacao-aba-notify-area').scroll(function() {
-        var $elemento = $(this);
-        if ($elemento.scrollTop() + $elemento.height() >= $elemento[0].scrollHeight) {
-            // A barra de rolagem atingiu o final do elemento
-            console.log('Barra de rolagem atingiu o final');
-            x_notificacao_class.getNotificacoes(null);
 
-            // Aqui você pode adicionar a lógica que deseja executar quando a barra de rolagem atingir o final
-            // Por exemplo, carregar mais conteúdo, fazer uma requisição AJAX, etc.
-        }
-    });
 });
 
 
