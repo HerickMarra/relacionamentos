@@ -3,9 +3,7 @@
 <div class="x-notificacao">
     <div onclick="x_notificacao_abrir_aba()" class="notfy">
         <i class="bi bi-bell"></i>
-        @if ($countN)
             <div class="countNotfy">{{$countN}}</div>
-        @endif
     </div>
 </div>
 
