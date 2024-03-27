@@ -3,7 +3,7 @@
 <div  class="x-medidor-base">
     <div class="x-medidor-cicle">
             <div  class="x-medidor-medidores">
-                <p class="x-medidor-medidores-title">Reacionamento</p>
+                <p class="x-medidor-medidores-title">Relacionamento</p>
                 <p class="x-medidor-medidores-var" style="margin-top: 5px">90%</p>
                 <button class="x-medidor-medidores-act clearBtn" >Adicionar Emoção</button>
             </div>
