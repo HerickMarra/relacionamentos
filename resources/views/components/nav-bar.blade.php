@@ -1,12 +1,12 @@
 <link rel="stylesheet" href="{{ asset('components/navbar/navbar.css') }}">
 
 
-<div class="x-NavBar-Add">
+{{-- <div class="x-NavBar-Add">
     <div class="x-NavBar-Add-act">
         <i class="bi bi-plus-circle-dotted"></i>
     </div>
     
-</div>
+</div> --}}
 
 <div class="x-NavBar">
     @foreach ($buttons as $btn)

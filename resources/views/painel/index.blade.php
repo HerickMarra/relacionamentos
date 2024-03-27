@@ -16,7 +16,7 @@
         <x-StatusOnline/>
         <x-medidor/>
         {{-- <x-ButtonsPainel/> --}}
-        {{-- <x-MarcadoresFixo/> --}}
+        <x-MarcadoresFixo/>
 
         <x-Eventos/>
 
