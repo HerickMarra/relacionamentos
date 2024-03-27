@@ -5,6 +5,8 @@
     --subBackground-s: rgb(0,0,0);
     --sombra: drop-shadow(1px 1px 10px rgba(0, 0, 0, 0.632));
     --text-color: #fff;
+    --subText-color: #3a3a3a;
+
   }
 
 body{

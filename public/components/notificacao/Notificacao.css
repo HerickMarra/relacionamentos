@@ -1,5 +1,5 @@
 :root {
-    --x-notficacaoTamanho: 50px; /* Define o tamanho do componente */
+    --x-notficacaoTamanho: 40px; /* Define o tamanho do componente */
 }
 
 .x-notificacao{
@@ -68,7 +68,7 @@
 
 
 .x-notificacao-aba-actions{
-    color: var(--text-color);
+    color: var(--subText-color);
     padding: 20px 20px;
     display: flex;
 }
