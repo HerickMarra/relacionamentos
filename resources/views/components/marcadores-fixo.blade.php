@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="{{ asset('components/marcadoresfixo/marcadoresfixo.css') }}">
+<link rel="stylesheet" href="{{ asset('components/marcadoresfixo/marcadoresfixo.css?v=a') }}">
 
 <div class="x-MarcadoresFixo">
     <div class="x-MarcadoresFixo-areaBtn">
