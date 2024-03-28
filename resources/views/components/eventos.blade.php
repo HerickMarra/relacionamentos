@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="{{ asset('components/eventos/eventos.css') }}">
 
-@if ($events)
+@if (count($events))
     
 <div class="x-eventos">
     <p class="x-eventos-title">Proximos Eventos</p>
