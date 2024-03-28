@@ -24,6 +24,7 @@
     filter: var(--sombra);
     border-radius: 10px;;
     display: flex;
+    margin:  10px 0;;
 }
 
 .x-evento-img{
