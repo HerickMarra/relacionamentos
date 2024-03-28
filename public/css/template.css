@@ -77,9 +77,25 @@
   border: none;
 }
 
+.btnPadrao{
+  background-color: var(--subBackground);
+  color: var(--text-color);
+  filter: var(--sombra);
+  border-radius: 10px;
+}
+
 /* Btn */
 
 
+/* TEXT */
+.baseText{
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+
+
+/* TEXT */
 
 
 
