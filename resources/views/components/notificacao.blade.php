@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="{{ asset('components/notificacao/Notificacao.css') }}">
+<link rel="stylesheet" href="{{ asset("components/notificacao/Notificacao.css?=$version") }}">
 
 <div class="x-notificacao">
     <div onclick="x_notificacao_abrir_aba()" class="notfy">

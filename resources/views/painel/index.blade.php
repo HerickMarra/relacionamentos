@@ -7,7 +7,7 @@
     <title>Painel</title>
 
     @include('painel.importsHeader')
-    <link rel="stylesheet" href="{{ asset('css/painel/index.css?v=a') }}">
+    <link rel="stylesheet" href="{{ asset("css/painel/index.css?v=$version") }}">
 
 </head>
 <body class="flexCenter-c">
@@ -19,6 +19,8 @@
         <x-MarcadoresFixo/>
 
         <x-Eventos/>
+
+        <x-AnalisesParceiro/>
 
         <x-NavBar/>
     </div>

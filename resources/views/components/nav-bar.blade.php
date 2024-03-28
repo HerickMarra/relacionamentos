@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="{{ asset('components/navbar/navbar.css') }}">
+<link rel="stylesheet" href="{{ asset("components/navbar/navbar.css?v=$version") }}">
 
 
 {{-- <div class="x-NavBar-Add">

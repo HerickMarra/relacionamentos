@@ -43,4 +43,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function emotions()
+    {
+        return $this->hasMany(Emotion::class);
+    }
 }

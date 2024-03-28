@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="{{ asset('components/buttonspainel/buttonspainel.css') }}">
+<link rel="stylesheet" href="{{ asset("components/buttonspainel/buttonspainel.css?v=$version") }}">
 
 <div class="x-buttonspainel">
     @foreach ($buttons as $btn)

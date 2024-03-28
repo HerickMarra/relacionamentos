@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="{{ asset('components/medidor/medidor.css') }}">
+<link rel="stylesheet" href="{{ asset("components/medidor/medidor.css?v=$version") }}">
 
 <div  class="x-medidor-base">
     <div class="x-medidor-cicle">

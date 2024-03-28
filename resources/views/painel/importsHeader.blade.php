@@ -5,6 +5,6 @@
 {{-- Fonte --}}
 
 
-<link rel="stylesheet" href="{{ asset('css/base.css?v=b') }}">
-<link rel="stylesheet" href="{{ asset('css/template.css?v=b') }}">
+<link rel="stylesheet" href="{{ asset("css/base.css?v=$version") }}">
+<link rel="stylesheet" href="{{ asset("css/template.css?v=$version") }}">
 

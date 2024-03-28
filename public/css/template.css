@@ -30,6 +30,7 @@
     height: 100vh;
     width: clamp(200px, 100%, 600px);
     background-color: var(--background);
+    padding-bottom: 300px;
 }
 
 
