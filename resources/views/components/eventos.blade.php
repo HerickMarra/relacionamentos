@@ -1,5 +1,7 @@
 <link rel="stylesheet" href="{{ asset('components/eventos/eventos.css') }}">
 
+@if ($events)
+    
 <div class="x-eventos">
     <p class="x-eventos-title">Proximos Eventos</p>
     @foreach ($events as $event)
@@ -15,3 +17,4 @@
     
     
 </div>
+@endif
