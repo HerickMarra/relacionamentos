@@ -94,7 +94,14 @@
   text-decoration: none;
 }
 
-
+.globalTitle{
+  color: var(--text-color);
+  text-decoration: none;
+  width: 80%;
+  margin: 0 auto;
+  font-size: 13px;
+  font-weight: 900;
+}
 
 /* TEXT */
 

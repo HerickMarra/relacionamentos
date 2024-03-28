@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="{{ asset("components/analiseparceiro/analiseparceiro.css?v=$version") }}">
 
-
+<p class="globalTitle">Visão geral</p>
 <div class="X-AnaliseParceiro">
     @foreach ($users_Parceiros as $item)
         <div class="X-AnaliseParceiro-Parceiro">
