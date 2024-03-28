@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="{{ asset('components/eventos/eventos.css') }}">
+<link rel="stylesheet" href="{{ asset('components/eventos/eventos.css?v=b') }}">
 
 @if (count($events))
     
