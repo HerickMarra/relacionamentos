@@ -12,8 +12,10 @@
 <body class="flexCenter-c">
     <div class="areaMobile">
         <x-Notificacao/>
+        <x-record.add-image/>
 
-
+        <x-MarcadoresFixo/>
+        <x-NavBar/>
     </div>
 
 @include('painel.importsScript')

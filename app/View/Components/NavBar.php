@@ -22,7 +22,13 @@ class NavBar extends Component
     public function render(): View|Closure|string
     {
         $buttons = [
-                
+
+                [
+                    'color' => "#FF5C00",
+                    'icon' =>  "bi bi-house-door-fill",
+                    'link' => '/painel'
+                ],
+
                 [
                     'color' => "#FF5C00",
                     'icon' =>  "bi bi-images",
@@ -38,11 +44,11 @@ class NavBar extends Component
                     'icon' =>  "bi bi-gift-fill",
                     'link' => ''
                 ],
-                [
-                    'color' => "#FF5C00",
-                    'icon' =>  "bi bi-bar-chart-line",
-                    'link' => ''
-                ],
+                // [
+                //     'color' => "#FF5C00",
+                //     'icon' =>  "bi bi-bar-chart-line",
+                //     'link' => ''
+                // ],
 
             ];
         return view('components.nav-bar',compact('buttons'));

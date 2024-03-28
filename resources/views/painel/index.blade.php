@@ -16,12 +16,11 @@
         <x-StatusOnline/>
         <x-medidor/>
         {{-- <x-ButtonsPainel/> --}}
-        <x-MarcadoresFixo/>
 
         <x-Eventos/>
 
         <x-AnalisesParceiro/>
-
+        <x-MarcadoresFixo/>
         <x-NavBar/>
     </div>
 

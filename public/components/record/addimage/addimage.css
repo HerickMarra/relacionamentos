@@ -1,0 +1,28 @@
+:root{
+    --x-addimage-tamanho: 55px;
+}
+
+.x-addimage{
+    width: 100%;
+    height: var(--x-addimage-tamanho);
+    position: fixed;
+    bottom: 130px;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.x-addimage-add{
+    width: calc(var(--x-addimage-tamanho) * 0.95);
+    height: calc(var(--x-addimage-tamanho) * 0.95);
+    background-color: var(--subBackground);
+    border-radius: 100%;
+    font-size: calc(var(--x-addimage-tamanho) * 0.65);
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+

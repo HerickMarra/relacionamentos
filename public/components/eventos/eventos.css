@@ -18,7 +18,7 @@
 }
 
 .x-evento{
-    width: 300px;
+    width: 80%;
     height: 100px;
     background-color: var(--subBackground);
     filter: var(--sombra);
