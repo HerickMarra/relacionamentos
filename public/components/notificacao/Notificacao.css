@@ -3,6 +3,8 @@
 }
 
 .x-notificacao{
+    position: fixed;
+    top: 0;
     width: 100%;
     height: calc(var(--x-notficacaoTamanho)*1.5);
     display: flex;
