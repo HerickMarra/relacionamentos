@@ -1,7 +1,7 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
 :root {
     --background: rgb(36, 36, 36);
-    --subBackground: rgb(23, 23, 23);
+    --subBackground: #171717;
     --subBackground-s: rgb(0,0,0);
     --sombra: drop-shadow(1px 1px 10px rgba(0, 0, 0, 0.632));
     --text-color: #fff;

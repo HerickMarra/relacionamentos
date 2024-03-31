@@ -26,4 +26,10 @@ class NotificationController extends Controller
         }
         return response()->json($not);
     }
+
+    public function getItem(Request $request){
+        $not = Notification::where('id', $request->id)->first();
+
+        return response()->json($not);
+    }
 }

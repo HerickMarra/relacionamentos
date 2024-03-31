@@ -179,3 +179,49 @@
 
 
 
+#x-notificacao-modalDetalhes{
+    z-index: 1001;
+
+}
+
+
+
+
+.x-notificacao-modalDetalhes-image{
+    width: 50px;
+    height: 50px;
+    /* background-image: url(/img/rafah.png); */
+    margin: 0 auto;
+
+}
+
+.x-notificacao-modalDetalhes-container{
+    width: clamp(100px, 95%, 250px) !important;
+    padding: 20px 0 20px 0;
+}
+
+
+.x-notificacao-modalDetalhes-title{
+    text-align: center;
+    color: var(--text-color);
+    font-weight: 900;
+    margin-top: 5px;
+}
+
+
+.x-notificacao-modalDetalhes-desc{
+    color: var(--text-color);
+    text-align: center;
+    color:#fff;
+    font-size: 12px;
+    margin-top: 7px;
+}
+
+.x-notificacao-modalDetalhes-act{
+    display: block;
+    margin: 15px auto 0 auto !important;
+}
+
+
+
+

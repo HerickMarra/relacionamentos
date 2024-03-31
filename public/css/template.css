@@ -1,6 +1,16 @@
 
 
 
+/* IMAGES */
+
+.backgroudImage{
+    background-position: center;
+    background-size: cover;
+    border-radius: 100%;
+}
+
+/* =========IMAGES========= */
+
 /* Flex */
 .flexCenter-c{
     display: flex;
@@ -58,6 +68,14 @@
         align-items: center;
         justify-content: center;
     }
+
+    .modalContainer{
+       width: clamp(100px, 95%, 300px);
+       background-color: var(--background);
+       filter: var(--sombra);
+       border-radius: 7px;
+    }
+
 
 
 /* =========Modal========= */
@@ -133,6 +151,7 @@
     border-radius: 5px;
     padding: 5px 10px;
     margin-top: 15px;
+    border: none;
 }
 
 /* =========TEXT========= */

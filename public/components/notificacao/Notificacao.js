@@ -57,7 +57,10 @@ class Notificacao{
     }
 
     createNotifyElement(options){
+        console.log(options);
         let not = $('<div>')
+        .attr('data-id', options.id)
+        .attr('onclick', 'x_notificacao_detalhes(this)')
         .addClass('x-notificacao-aba-notify-area-not')
         .appendTo('#x-notificacao-aba-notify-area');
 
@@ -114,6 +117,7 @@ class Notificacao{
             }
             data.forEach(element => {
                 this.createNotifyElement({
+                    id: element.id,
                     colorIcon: element.color,
                     titulo: element.title,
                     desc: element.desc,
@@ -135,5 +139,29 @@ class Notificacao{
 let x_notificacao_class = new Notificacao({});
 
 
+function x_notificacao_detalhes(el){
 
 
+    $.ajax({
+            type: 'get',
+            url: X_notificacao_URLGetDetails, // URL para onde os dados serão enviados
+            data: {
+                id: $(el).attr('data-id')
+            }, // Dados do formulário a serem enviados
+            dataType: 'json', // Tipo de dados esperado como resposta
+            encode: true
+        })
+        .done((data) => {
+            // console.log(data);
+            $('.x-notificacao-modalDetalhes-image').css('backgroundImage', `url(${data.image})`);
+            $('.x-notificacao-modalDetalhes-title').text(data.title)
+            $('.x-notificacao-modalDetalhes-desc').text(data.desc)
+            $('#x-notificacao-modalDetalhes').fadeIn();
+        })
+        .fail((data) => {
+        });
+}
+
+function x_notificacao_exitModalDetalhes(){
+    $('#x-notificacao-modalDetalhes').fadeOut();
+}
