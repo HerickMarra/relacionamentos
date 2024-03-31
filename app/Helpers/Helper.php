@@ -16,8 +16,8 @@ function lastLogin($date){
         return "Ultimo login a $diferenca->h hora".$plural;
     }
 
-    if($diferenca->i > 0 && $diferenca->i< 60){
-        $plural = $diferenca->m > 1 ? 's' : '';
+    if($diferenca->i > 1 && $diferenca->i< 60){
+        $plural = $diferenca->i > 1 ? 's' : '';
         return "Ultimo login a $diferenca->m minuto".$plural;
     }
 
