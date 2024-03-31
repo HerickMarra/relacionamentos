@@ -19,6 +19,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        view()->share('version', '12');
+        view()->share('version', '13');
     }
 }

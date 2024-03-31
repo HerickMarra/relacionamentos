@@ -197,7 +197,7 @@
 
 .x-notificacao-modalDetalhes-container{
     width: clamp(100px, 95%, 250px) !important;
-    padding: 20px 0 20px 0;
+    padding: 20px 20px 20px 20px;
 }
 
 

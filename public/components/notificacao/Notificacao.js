@@ -57,7 +57,7 @@ class Notificacao{
     }
 
     createNotifyElement(options){
-        console.log(options);
+        // console.log(options);
         let not = $('<div>')
         .attr('data-id', options.id)
         .attr('onclick', 'x_notificacao_detalhes(this)')

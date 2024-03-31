@@ -57,7 +57,7 @@ function MarcadoresFixoSetMedidor(medidor){
     $('.x-MarcadoresFixo-Contador').removeClass('x-MarcadoresFixo-Contador-Active');
     $(`.MFC${medidor}`).addClass('x-MarcadoresFixo-Contador-Active');
     medidorLevel = medidor;
-    console.log(medidorLevel);
+    // console.log(medidorLevel);
 }
 
 
