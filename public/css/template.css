@@ -126,6 +126,15 @@
   font-weight: 900;
 }
 
+
+.btnAct{
+    background-color: rgb(133, 28, 19);
+    color:#fff;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-top: 15px;
+}
+
 /* =========TEXT========= */
 
 
