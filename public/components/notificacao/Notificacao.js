@@ -140,8 +140,6 @@ let x_notificacao_class = new Notificacao({});
 
 
 function x_notificacao_detalhes(el){
-    alert('oi');
-
     $.ajax({
             type: 'get',
             url: X_notificacao_URLGetDetails, // URL para onde os dados serão enviados
