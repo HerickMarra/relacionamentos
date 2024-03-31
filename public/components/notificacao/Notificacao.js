@@ -140,7 +140,7 @@ let x_notificacao_class = new Notificacao({});
 
 
 function x_notificacao_detalhes(el){
-
+    alert('oi');
 
     $.ajax({
             type: 'get',
