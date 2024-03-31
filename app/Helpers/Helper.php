@@ -5,7 +5,7 @@ function lastLogin($date){
     $dataAtual = new DateTime();
     // Calcule a diferença entre as datas
     $diferenca = $dataInicial->diff($dataAtual);
-    dd($diferenca);
+    echo($diferenca->i);
     if($diferenca->days > 0 && $diferenca->days< 7){
         $plural = $diferenca->days > 1 ? 's' : '';
         return "Ultimo login a $diferenca->days dia".$plural;
