@@ -1,0 +1,41 @@
+
+.x-cardevent{
+
+    width: 80%;
+    height: 100px;
+    background-color: var(--subBackground);
+    filter: var(--sombra);
+    border-radius: 10px;;
+    display: flex;
+    margin:  20px auto;
+
+}
+
+.x-cardevent-img{
+    width: 100px;
+    height: 100px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0 0 0 10px;
+    border-radius: 10px;
+}
+
+.x-cardevent-desc{
+    color: var(--text-color);
+    padding: 10px;
+}
+
+.x-cardevent-desc-T{
+    font-weight: 900;
+}
+
+.x-cardevent-desc-D{
+    font-size: 12px;
+}
+
+
+.x-eventos-vermais{
+    margin: 10px 0;
+    font-size: 10px;;
+}

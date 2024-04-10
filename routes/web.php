@@ -4,6 +4,7 @@ use App\Http\Controllers\app\EmotionController;
 use App\Http\Controllers\app\IndicatorController;
 use App\Http\Controllers\app\NotificationController;
 use App\Http\Controllers\auth\LoginController;
+use App\Http\Controllers\painel\EventController;
 use App\Http\Controllers\painel\PainelController;
 use App\Http\Controllers\painel\RecordController;
 use Illuminate\Support\Facades\Route;
@@ -76,3 +77,10 @@ Route::group([
     Route::post('/create', [RecordController::class, 'create'])->middleware('auth')->name('record.create');
     // Route::post('/', [LoginController::class, 'login'])->name('loginAuth');
 });
+
+
+Route::resource('events', EventController::class);
+
+
+
+

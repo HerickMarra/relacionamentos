@@ -25,7 +25,7 @@
     </div>
     @endforeach
 
-    <a href="" class="baseText x-eventos-vermais">Ver todos os eventos</a>
+    <a href="/events" class="baseText x-eventos-vermais">Ver todos os eventos</a>
 
 </div>
 @endif
