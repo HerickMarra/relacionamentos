@@ -10,7 +10,7 @@
 
             <div style="display: none" class="x-medidor-medidores">
                 <p class="x-medidor-medidores-title">Mestruação</p>
-                <p class="x-medidor-medidores-var" style="margin-top: 5px">25/04</p>
+                <p class="x-medidor-medidores-var" style="margin-top: 5px">23/04</p>
                 <button class="x-medidor-medidores-act clearBtn" >Calendario menstrual</button>
             </div>
 

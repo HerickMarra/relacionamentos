@@ -24,12 +24,19 @@ Route::get('/', function () {
 });
 
 
+// AUTH
 Route::group([
     'prefix' => '/login',
 ], function () {
     Route::get('/', [LoginController::class, 'index'])->middleware('guest')->name('login');
     Route::post('/', [LoginController::class, 'login'])->name('loginAuth');
 });
+
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+
+// ----------  AUTH  ----------
+
+
 
 Route::group([
     'prefix' => '/painel',
@@ -38,7 +45,6 @@ Route::group([
     Route::get('/', [PainelController::class, 'index'])->name('painel');
 });
 
-Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 
 Route::group([
