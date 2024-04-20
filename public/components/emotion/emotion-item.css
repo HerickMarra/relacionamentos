@@ -56,5 +56,8 @@
     padding-left: 10px;
 }
 
-
+.x-emotion-item-desc-level span{
+    font-size: 12px;
+    font-weight: 700;
+}
 

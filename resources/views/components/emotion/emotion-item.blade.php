@@ -7,7 +7,7 @@
 
     <div class="x-emotion-item-desc">
         <p class="x-emotion-item-desc-title">{{strlen($emotion->description) >74 ? substr($emotion->description, 0,74) . "..." : $emotion->description}}</p>
-        <p class="x-emotion-item-desc-level" >{{$emotion->level}}/10</p>
+        <p class="x-emotion-item-desc-level" >{{$emotion->level}}/10  -- <span>{{date("d/m/Y H:i:s", strtotime($emotion->created_at))}}</span></p>
     </div>
 
     <div class="x-emotion-item-icons">
