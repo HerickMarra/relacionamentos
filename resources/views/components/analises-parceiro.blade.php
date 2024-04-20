@@ -11,8 +11,9 @@
             <div class="X-AnaliseParceiro-Parceiro-Analises">
                 <p class="X-AnaliseParceiro-Parceiro-Analises-AV">Avaliações: {{count($item->emotions)}}</p>
                 <p class="X-AnaliseParceiro-Parceiro-Analises-LL">{{lastLogin($item->last_login)}}</p>
+                <a href="/emotion/{{$item->id}}"><button  class="clearBtn btnAct X-AnaliseParceiro-Parceiro-Analises-btn">Avaliações</button></a>
             </div>
         </div>
     @endforeach
-    
+
 </div>

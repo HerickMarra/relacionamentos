@@ -10,6 +10,14 @@ use Illuminate\Http\Request;
 
 class EmotionController extends Controller
 {
+
+    public function index(Request $request, $id){
+
+        $emotions = User::where('id', $id)->with('emotions')->first();
+        return view('emotion.index', compact('emotions'));
+    }
+
+
     public function createEmotion(Request $request){
         $emotion = $request->emotion;
         $emotion['user_id'] = Auth()->user()->id;

@@ -60,10 +60,11 @@ Route::group([
 
 
 Route::group([
-    'prefix' => '/indicators',
+    'prefix' => '/emotion',
     'middleware' => ['auth','lastlogin']
 ], function () {
     Route::post('/create', [EmotionController::class, 'createEmotion'])->middleware('auth')->name('indicator.create');
+    Route::get('/{id}', [EmotionController::class, 'index'])->middleware('auth')->name('indicator.index');
     // Route::post('/', [LoginController::class, 'login'])->name('loginAuth');
 });
 

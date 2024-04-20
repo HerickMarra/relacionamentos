@@ -27,7 +27,7 @@ function MarcadoresFixoExitModal(){
 }
 
 
-let x_MarcadoresFixo_URL_create = "/indicators/create";
+let x_MarcadoresFixo_URL_create = "/emotion/create";
 function MarcadoresFixoSave(_token){
     $.ajax({
         type: 'post',
