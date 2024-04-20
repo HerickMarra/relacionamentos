@@ -13,7 +13,9 @@ class EmotionController extends Controller
 
     public function index(Request $request, $id){
 
-        $emotions = User::where('id', $id)->with('emotions')->first();
+        $emotions = User::where('id', $id)->with(['emotions' => function($query) {
+            $query->orderBy('created_at', 'desc');
+        }])->first();
         return view('emotion.index', compact('emotions'));
     }
 
