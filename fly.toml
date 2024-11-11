@@ -5,7 +5,7 @@
 
 app = 'relacionamentos'
 primary_region = 'gru'
-console_command = 'php /var/www/html/artisan tinker'
+console_command = 'php /var/www/html/artisan tinker ; php artisan down'
 
 [build]
   [build.args]
