@@ -19,7 +19,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-Route::get('/deploy', function () {
+oute::match(['get', 'post'], '/deploy', function () {
     // ⚠️ Proteção simples com token na URL
     // $token = request()->query('token');
     // if ($token !== env('DEPLOY_TOKEN')) {

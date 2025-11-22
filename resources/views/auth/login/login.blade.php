@@ -30,7 +30,7 @@
     {{-- Area de escolha de logins --}}
 
 
-    <h1>oi</h1>
+    <h1>BRASIL</h1>
     {{-- Area de autenticação --}}
     <div  style="display: none"  class="area areaLoginAuth">
         <div style="background-image: url({{asset("/img/anne.jpg")}})" class="profile" id="profileAuth">
