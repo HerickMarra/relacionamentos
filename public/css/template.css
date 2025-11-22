@@ -112,6 +112,29 @@
 
 
 
+/* INPUTS */
+
+.inputText-black{
+    border-radius: 6px;
+    background-color: var(--subBackground);
+    color: var(--text-color);
+    padding: 10px 7px;
+    border: none;
+    filter: drop-shadow(1px 1px 15px rgba(0, 0, 0, 0.208));
+    margin: 10px 0;
+    width: clamp(40px, 100%, 245px);
+}
+
+.inputText-lite{
+    border-radius: 6px;
+    background-color: var(--background);
+    color: var(--text-color);
+    padding: 10px 7px;
+    border: none;
+    filter: drop-shadow(1px 1px 15px rgba(0, 0, 0, 0.208));
+    margin: 10px 0;
+    width: clamp(40px, 100%, 245px);
+}
 
 /* Btn */
 
@@ -120,10 +143,14 @@
 }
 
 .btnPadrao{
-  background-color: var(--subBackground);
+  background-color: var(--background);
   color: var(--text-color);
   filter: var(--sombra);
   border-radius: 10px;
+}
+
+.btnPadrao-lite{
+
 }
 
 /* =========Btn========= */

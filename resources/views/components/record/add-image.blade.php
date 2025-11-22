@@ -10,11 +10,12 @@
     <div class="x-addimage-form-area">
         <div onclick="x_addimage_hideModal()" class="modalExit"><button>X</button></div>
         <div id="imagePreview"></div>
-        <label class="x-addimage-label" for="x-addimage-inoput-image"><i class="bi bi-plus-circle-dotted"></i></label>
-        <input style="display: none;" type="file" name="x-addimage-inoput-image" id="x-addimage-inoput-image" accept="image/*">
+        <label class="x-addimage-label" for="x-addimage-input-image"><i class="bi bi-plus-circle-dotted"></i></label>
+        <input style="display: none;" type="file" name="x-addimage-input-image" id="x-addimage-input-image" accept="image/*">
 
+        <input style="margin: 30px 0;" placeholder="descrição" class="inputText-lite" type="text" name="desc" id="x-addimage-input-desc">
         {{-- <textarea name="" id="" cols="30" rows="10"></textarea> --}}
-        <button onclick="x_addimage_adicionar()">Adicionar</button>
+        <button style="padding: 5px 15px; margin-bottom: 10px" class="clearBtn btnPadrao" onclick="x_addimage_adicionar()">Adicionar</button>
     </div>
 </div>
 

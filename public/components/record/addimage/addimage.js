@@ -60,9 +60,14 @@ function chegouNoFinal() {
 
   function X_addimage_addImage(data){
         data.forEach(element => {
+            console.log(element);
             let div = $('<div>').addClass('x-addimage-image').appendTo('#x-addimage-images');
             $('<img>').appendTo(div).attr('src', element.picture);
-            $('<div>').addClass('x-addimage-image-bio').appendTo(div);
+
+           let header = $('<div>').addClass('x-addimage-image-bio').appendTo(div);
+           let picute = $('<div>').addClass('x-addimage-image-bio-picture').appendTo(header)
+           let desc = $('<p>').addClass('x-addimage-image-bio-desc').text(element.desc).appendTo(div)
+           picute.css('backgroundImage', `url(${element.user.profile_picture})`);
         });
   }
 
@@ -83,7 +88,7 @@ function chegouNoFinal() {
 
 
   function x_addimage_adicionar(){
-    var fileInput = document.getElementById('x-addimage-inoput-image');
+    var fileInput = document.getElementById('x-addimage-input-image');
     var file = fileInput.files[0];
 
     if(file) {
@@ -98,6 +103,7 @@ function chegouNoFinal() {
                 data: {
                     _token: X_addimage_token,
                     image: base64String,
+                    desc: $('#x-addimage-input-desc').val(),
                 }, // Dados do formulário a serem enviados
                 dataType: 'json', // Tipo de dados esperado como resposta
                 encode: true

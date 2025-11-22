@@ -37,7 +37,7 @@ class NavBar extends Component
                 [
                     'color' => "#0494E4",
                     'icon' =>  "bi bi-calendar-range",
-                    'link' => ''
+                    'link' => '/events'
                 ],
                 [
                     'color' => "#0494E4",

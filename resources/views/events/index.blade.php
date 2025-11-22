@@ -9,6 +9,7 @@
     @include('painel.importsHeader')
 
     <link rel="stylesheet" href="/components/events/cardevents/cardevents.css">
+    <link rel="stylesheet" href="/components/events/modaladdevent/modaladdevent.css">
 
 </head>
 <body class="flexCenter-c">
@@ -17,9 +18,9 @@
         <div style="height: 60px"></div>
         @foreach ($events as $event)
             <x-event.card-event :event="$event"  />
-
         @endforeach
 
+        <x-event.modal-add-event />
         <x-MarcadoresFixo/>
         <x-NavBar/>
     </div>

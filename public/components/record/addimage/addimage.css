@@ -30,6 +30,7 @@
     margin-top: 80px;;
     width: 100%;;
     display: flex;
+    padding-bottom: 100px;
     align-items: center;
     flex-direction: column;
 }
@@ -51,16 +52,28 @@
     position: absolute;
     top: -18px;
     left: -10px;;
-    width: 120px;
-    height: 60px;
-    background-color: var(--subBackground);
+    width: 100px;
+    height: 100px;
+    /* background-color: var(--subBackground); */
     filter: var(--sombra);
     border-radius: 7px;
 }
 
+.x-addimage-image-bio-desc{
+    color: #fff;
+}
+
+.x-addimage-image-bio-picture{
+    width: 50px;
+    height: 50px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 100%;
+}
+
 .x-addimage-form-area{
     width: 80%;
-    height: 200px;;
+    /* height: 200px;; */
     background-color: var(--subBackground);
     filter: var(--sombra);
     border-radius: 10px;
@@ -73,7 +86,7 @@
 .x-addimage-label{
     color: var(--text-color);
     font-size: 40px;
-    margin-bottom: 50px;
+    /* margin-bottom: 50px; */
 }
 
 

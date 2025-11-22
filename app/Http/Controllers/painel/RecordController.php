@@ -15,7 +15,9 @@ class RecordController extends Controller
 
     public function get(Request $request){
         $pageNumber = $request->page ?? 1;
-        $records = Record::orderBy('id', 'desc')->paginate(10, ['*'], 'page', $pageNumber);
+        $records = Record::with('user')
+        ->orderBy('id', 'desc')
+        ->paginate(10, ['*'], 'page', $pageNumber);
 
         return response()->json($records);
     }
@@ -40,7 +42,7 @@ class RecordController extends Controller
             Record::create([
                 'picture' => '/uploads/records/' . $filename,
                 'date' => now(),
-                'desc' => '',
+                'desc' => $request->desc ?? '',
                 'user_id' => auth()->user()->id,
             ]);
             // Retorne o caminho do arquivo salvo

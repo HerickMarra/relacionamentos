@@ -48,4 +48,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Emotion::class);
     }
+
+    public function records()
+    {
+        return $this->hasMany(Record::class);
+    }
 }

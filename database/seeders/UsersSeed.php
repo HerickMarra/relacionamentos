@@ -21,10 +21,10 @@ class UsersSeed extends Seeder
         ]);
 
         User::create([
-            'username' => 'rafah',
-            'name' => 'Rafaelah',
+            'username' => 'anne',
+            'name' => 'Anne',
             'password' => '123456789',
-            'profile_picture' => '/img/rafah.png'
+            'profile_picture' => '/img/anne.jpg'
         ]);
 
     }
