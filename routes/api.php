@@ -42,3 +42,5 @@ Route::get('/deploy', function () {
 
     return "<pre>" . implode("\n", $output) . "</pre>";
 });
+
+
