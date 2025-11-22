@@ -13,6 +13,6 @@ class RecordSeeder extends Seeder
      */
     public function run(): void
     {
-        $faker = Factory::create('pt_BR');
+        // $faker = Factory::create('pt_BR');
     }
 }
