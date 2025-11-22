@@ -30,7 +30,6 @@
     {{-- Area de escolha de logins --}}
 
 
-    <h1>BRASIL 2030</h1>
     {{-- Area de autenticação --}}
     <div  style="display: none"  class="area areaLoginAuth">
         <div style="background-image: url({{asset("/img/anne.jpg")}})" class="profile" id="profileAuth">
