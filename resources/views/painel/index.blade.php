@@ -11,6 +11,8 @@
 
 </head>
 <body class="flexCenter-c">
+        <x-layout.load-intermedio />
+
     <div class="areaMobile">
         <x-StatusOnline/>
         <x-medidor/>
@@ -26,6 +28,8 @@
 
 
     @include('painel.importsScript')
+
+        
 </body>
 </html>
 

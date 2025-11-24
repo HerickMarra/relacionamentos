@@ -3,3 +3,25 @@
 
 
 
+<script>
+    // QUANDO A PÁGINA COMEÇA A SAIR (antes de carregar a próxima)
+    window.addEventListener('beforeunload', function() {
+        $(".load1").fadeIn(200); // ou fadeIn
+    });
+
+    // QUANDO A PÁGINA ACABOU DE CARREGAR
+    $(window).on("load", function () {
+        $(".load1").fadeOut(200);
+    });
+
+    window.addEventListener("pageshow", function (event) {
+        // Se a página veio do bfcache, esconda o loader
+        if (event.persisted) {
+            $(".load1").fadeOut(200); // ou fadeOut
+        } else {
+            // Página carregou normalmente
+            $(".load1").fadeOut(200);
+        }
+    });
+</script>
+

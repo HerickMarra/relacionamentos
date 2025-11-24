@@ -10,6 +10,8 @@
 
 </head>
 <body class="flexCenter-c">
+<x-layout.load-intermedio />
+
     <div class="areaMobile">
 
         <x-record.add-image/>
@@ -19,5 +21,6 @@
     </div>
 
 @include('painel.importsScript')
+
 </body>
 </html>

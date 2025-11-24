@@ -80,7 +80,7 @@ Route::group([
 });
 
 
-Route::resource('events', EventController::class);
+Route::resource('events', EventController::class)->middleware('auth');
 
 
 
