@@ -5,6 +5,7 @@ use App\Http\Controllers\app\IndicatorController;
 use App\Http\Controllers\app\NotificationController;
 use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\painel\EventController;
+use App\Http\Controllers\painel\MoodGifController;
 use App\Http\Controllers\painel\PainelController;
 use App\Http\Controllers\painel\RecordController;
 use Illuminate\Support\Facades\Route;
@@ -67,6 +68,15 @@ Route::group([
     Route::get('/{id}', [EmotionController::class, 'index'])->middleware('auth')->name('indicator.index');
     // Route::post('/', [LoginController::class, 'login'])->name('loginAuth');
 });
+
+
+Route::group([
+    'prefix' => '/mood-gif',
+    'middleware' => ['auth','lastlogin']
+], function () {
+    Route::post('/', [MoodGifController::class, 'store']);
+});
+
 
 
 Route::group([

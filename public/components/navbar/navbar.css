@@ -6,6 +6,7 @@
     background-color: var(--subBackground);
     height: 50px;
     display: flex;
+    z-index: 3;
 }
 
 .x-NavBar-B{

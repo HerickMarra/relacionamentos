@@ -53,4 +53,11 @@ class User extends Authenticatable
     {
         return $this->hasMany(Record::class);
     }
+
+
+    public function latestMoodGif()
+    {
+        return $this->hasOne(\App\Models\MoodGif::class)
+                    ->latestOfMany();
+    }
 }

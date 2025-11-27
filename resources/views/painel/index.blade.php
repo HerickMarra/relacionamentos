@@ -21,6 +21,8 @@
         <x-Eventos/>
 
         <x-AnalisesParceiro/>
+
+        <x-moodgif.moodgif/>
         <x-MarcadoresFixo/>
         <x-NavBar/>
         <x-Notificacao/>
