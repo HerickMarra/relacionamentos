@@ -1,7 +1,7 @@
 @props(['usersGif'])
 <div class="baseMoodGif"> 
-    {{-- oi --}}
-    <h2 class="titulo">Como está se sentindo hoje?</h2>
+    
+    <h2 class="titulo">Como está se sentindo hoje? oi</h2>
 
     @foreach ($usersGif as $gif)
         <div class="containerGifUser">
