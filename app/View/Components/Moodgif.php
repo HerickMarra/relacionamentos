@@ -29,6 +29,6 @@ class Moodgif extends Component
 
 
         // dd($usersGif[0]->profile_picture);
-        return view('components.moodgif.moodgif', compact('usersGif'));
+        return view('components.moodgif', compact('usersGif'));
     }
 }
