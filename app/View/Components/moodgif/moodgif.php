@@ -22,12 +22,11 @@ class Moodgif extends Component
      */
     public function render(): View|Closure|string
     {
-       $usersGif = User::with(['latestMoodGif' => function ($q) {
+        $usersGif = User::with(['latestMoodGif' => function ($q) {
             $q->where('created_at', '>=', now()->subDay());
         }])
         ->get();
 
-        $usersGif = $usersGif ?? [];
 
         // dd($usersGif[0]->profile_picture);
         return view('components.moodgif.moodgif', compact('usersGif'));
