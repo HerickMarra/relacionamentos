@@ -1,6 +1,6 @@
 <?php
 
-namespace App\View\Components\moodgif;
+namespace App\View\Components\Moodgif;
 
 use App\Models\User;
 use Closure;
