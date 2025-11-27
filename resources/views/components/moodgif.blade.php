@@ -8,7 +8,7 @@
             @if (isset($gif->latestMoodGif->gif_url))
             <img class="gifUser" src="{{ $gif->latestMoodGif->gif_url }}" alt="">
             @else
-                <p style="text-align: center; color: #fff; padding: 100px 0 0 0;">Sem emoção</p>
+                <p style="text-align: center; color: #fff; padding: 100px 0 100px 0;">Sem emoção</p>
             @endif
 
             @if ($gif->id == auth()->user()->id)
@@ -44,7 +44,7 @@
     width: 50px;
     height: 50px;
     border-radius: 5px;
-    filter: drop-shadow(1px 1px  10px rgba(255, 0, 0, 0.251));
+    filter: drop-shadow(1px 1px  10px rgb(0, 0, 0));
     position: absolute;
     z-index: 2;
     top: 0;
