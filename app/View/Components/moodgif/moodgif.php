@@ -7,7 +7,7 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class moodgif extends Component
+class Moodgif extends Component
 {
     /**
      * Create a new component instance.
