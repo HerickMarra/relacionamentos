@@ -22,6 +22,7 @@ class moodgif extends Component
      */
     public function render(): View|Closure|string
     {
+        dd('oi');
        $usersGif = User::with(['latestMoodGif' => function ($q) {
             $q->where('created_at', '>=', now()->subDay());
         }])

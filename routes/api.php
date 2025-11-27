@@ -31,8 +31,30 @@ Route::match(['get', 'post'], '/deploy', function () {
 
     // Comandos a executar
     $commands = [
-        "cd {$projectPath} && git pull origin main",
-        "cd {$projectPath} && php artisan migrate --force"
+    // Ir para o projeto e atualizar o código
+    "cd {$projectPath} && git pull origin main",
+
+    // Instalar dependências do Composer sem dev
+    // "cd {$projectPath} && composer install --no-interaction --prefer-dist --optimize-autoloader",
+
+    // Limpar caches antes da migração (evita erros)
+    "cd {$projectPath} && php artisan cache:clear",
+    "cd {$projectPath} && php artisan config:clear",
+    "cd {$projectPath} && php artisan view:clear",
+    "cd {$projectPath} && php artisan route:clear",
+
+    // Rodar as migrações
+    "cd {$projectPath} && php artisan migrate --force",
+
+    // Regerar caches otimizados
+    "cd {$projectPath} && php artisan config:cache",
+    "cd {$projectPath} && php artisan route:cache",
+    "cd {$projectPath} && php artisan view:cache",
+    "cd {$projectPath} && php artisan event:cache",
+
+    // Otimização geral do framework
+    "cd {$projectPath} && php artisan optimize",
+
     ];
 
     $output = [];
