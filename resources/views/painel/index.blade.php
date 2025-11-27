@@ -22,7 +22,7 @@
 
         <x-AnalisesParceiro/>
 
-        <x-moodgif.Moodgif/>
+        <x-moodgif.moodgif/>
         <x-MarcadoresFixo/>
         <x-NavBar/>
         <x-Notificacao/>
