@@ -1,6 +1,4 @@
 @props(['usersGif'])
-
-
 <div class="baseMoodGif">
     <h2 class="titulo">Como está se sentindo hoje?</h2>
 
