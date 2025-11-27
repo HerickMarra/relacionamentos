@@ -211,7 +211,7 @@
 
 
 <script>
-    const apiKey = "{{ env('GIPHY_KEY') }}";
+    const apiKey = "{{ env('GIPHY_KEY', 'IJ6WBVoJ61oc7Pz1NYPjVuRNaOrR9i5j') }}";
     let currentQuery = '';
     let offset = 0;
     let isLoading = false;
