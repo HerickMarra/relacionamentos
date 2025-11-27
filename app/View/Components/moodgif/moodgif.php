@@ -27,6 +27,8 @@ class moodgif extends Component
         }])
         ->get();
 
+        $usersGif = $usersGif ?? [];
+
         // dd($usersGif[0]->profile_picture);
         return view('components.moodgif.moodgif', compact('usersGif'));
     }
