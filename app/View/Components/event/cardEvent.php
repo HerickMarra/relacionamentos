@@ -19,7 +19,7 @@ class cardEvent extends Component
      */
     public function render(): View|Closure|string
     {
-        if(!$this->event){return '';}
+        // if(!$this->event){return '';}
 
         $event = $this->event;
         return view('components.event.card-event', compact('event'));

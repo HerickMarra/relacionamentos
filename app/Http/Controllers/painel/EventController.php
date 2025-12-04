@@ -16,7 +16,7 @@ class EventController extends Controller
 
         $events = Event::where('date', '>=', now()->toDateString())->orderBy('date')->get();
         
-        dd($events);
+        // dd($events);
         return view('events.index', compact('events'));
     }
 
