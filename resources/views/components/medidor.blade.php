@@ -17,4 +17,4 @@
     </div>
 </div>
 
-<script src="{{ asset('components/medidor/medidor.js') }}"></script>
+<script src="{{ asset("components/medidor/medidor.js?v=$version") }}"></script>
