@@ -1,9 +1,5 @@
 :root {
     --x-medidor-tamanho: 200px;
-    --subBackground: #eee;
-    --background: #fff;
-    --text-color: #000;
-    --sombra: drop-shadow(0 0 5px rgba(0,0,0,0.1));
 }
 
 /* BASE DO MEDIDOR */
