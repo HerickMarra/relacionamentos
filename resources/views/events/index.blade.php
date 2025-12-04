@@ -20,7 +20,7 @@
             <x-event.card-event :event="$event"  />
         @endforeach
 
-        <x-event.modal-add-event />
+        {{-- <x-event.modal-add-event /> --}}
         <x-MarcadoresFixo/>
         <x-NavBar/>
     </div>
