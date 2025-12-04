@@ -11,7 +11,7 @@
         @if (in_array($event->act, ['link']))
             <div class="x-cardevent-link">
                 <a href="{{$event->act_link}}">
-                    <button class="clearBtn btnAct">Ver Mais</button>
+                    <button style="margin-top: 0;" class="clearBtn btnAct">Ver Mais</button>
                 </a>
             </div>
         @endif
