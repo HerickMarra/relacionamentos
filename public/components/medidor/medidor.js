@@ -10,5 +10,5 @@ window.onload = function() {
         }
         x_medidor_element.fadeOut();
         x_medidor_element.eq(x_medidor_atual).fadeIn();
-    },4000);
+    },30000);
 };
