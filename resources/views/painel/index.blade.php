@@ -20,6 +20,10 @@
 
         <x-Eventos/>
 
+        <div>
+            <p>Estou me curando das minhas doenças, não vou mais te incomodar ❤️‍🩹</p>
+        </div>
+
         <x-AnalisesParceiro/>
 
         <x-moodgif/>
