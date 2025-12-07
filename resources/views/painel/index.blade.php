@@ -20,7 +20,7 @@
 
         <x-Eventos/>
 
-        <div>
+        <div style="width: 95%; color: #fff;">
             <p>Estou me curando das minhas doenças, não vou mais te incomodar ❤️‍🩹</p>
         </div>
 
