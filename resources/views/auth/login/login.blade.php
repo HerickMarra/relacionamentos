@@ -32,7 +32,7 @@
 
     {{-- Area de autenticação --}}
     <div  style="display: none"  class="area areaLoginAuth">
-        <div style="background-image: url({{asset("/img/anne.jpg")}})" class="profile" id="profileAuth">
+        <div style="background-image: url({{asset("/img/rafah.png")}})" class="profile" id="profileAuth">
         </div>
         <p  class="name" id="nameAuth"> -- </p>
         <form class="formAuth" action="" method="post">

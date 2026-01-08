@@ -20,9 +20,6 @@
 
         <x-Eventos/>
 
-        <div style="width: 80%; color: #fff; margin: 0 auto; display: block;">
-            <p>Estou me curando das minhas doenças, não vou mais te incomodar ❤️‍🩹</p>
-        </div>
 
         <x-AnalisesParceiro/>
 
