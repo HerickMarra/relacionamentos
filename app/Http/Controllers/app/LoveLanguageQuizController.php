@@ -6,10 +6,12 @@ use App\Http\Controllers\Controller;
 use App\Models\LoveLanguage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Http;
+use App\Traits\LoveLanguageAI;
 
 class LoveLanguageQuizController extends Controller
 {
+    use LoveLanguageAI;
+
     private $questions = [
         ['A' => 'Gosto de receber bilhetes de carinho.', 'catA' => 'words_of_affirmation', 'B' => 'Gosto de ser abraçado(a).', 'catB' => 'physical_touch'],
         ['A' => 'Gosto de passar tempo a sós com você.', 'catA' => 'quality_time', 'B' => 'Sinto-me amado(a) quando você me ajuda com as tarefas.', 'catB' => 'acts_of_service'],
@@ -37,8 +39,7 @@ class LoveLanguageQuizController extends Controller
 
     public function store(Request $request)
     {
-        $answers = $request->input('answers'); // expecting array of categories
-        
+        $answers = $request->input('answers');
         $scores = [
             'words_of_affirmation' => 0,
             'acts_of_service' => 0,
@@ -46,63 +47,30 @@ class LoveLanguageQuizController extends Controller
             'quality_time' => 0,
             'physical_touch' => 0,
         ];
+        $detailedAnalysisData = [];
 
-        foreach ($answers as $cat) {
+        foreach ($answers as $ans) {
+            $cat = $ans['category'];
             if (isset($scores[$cat])) {
                 $scores[$cat]++;
+                $detailedAnalysisData[] = "- {$ans['question']}: Escolheu '{$ans['choice']}'";
             }
         }
 
-        // Normalize to a 1-5 scale for the database (optional, but good for consistency)
-        // Max score in any category could be 6ish in this 15q quiz
-        // Let's just store the raw counts or normalize manually.
-        // The original view was 1-5. Let's map raw count 0-6 to 0-5.
         $normalized = [];
         foreach ($scores as $key => $val) {
-            $normalized[$key] = min(5, ceil($val * 5 / 6)); // Rough normalization
+            $normalized[$key] = min(5, ceil($val * 5 / 6));
         }
 
-        $loveLanguage = LoveLanguage::updateOrCreate(
-            ['user_id' => Auth::id()],
-            $normalized
-        );
+        $loveLanguage = LoveLanguage::updateOrCreate(['user_id' => Auth::id()], $normalized);
 
-        // IA Analysis (OpenRouter)
-        $apiKey = env('OPENROUTER_API_KEY');
-        if ($apiKey) {
-            try {
-                $prompt = "Analise estruturada dos resultados do teste de Linguagens do Amor (Escala 0-5): " . 
-                          "Palavras de Afirmação: {$normalized['words_of_affirmation']}, " .
-                          "Atos de Serviço: {$normalized['acts_of_service']}, " .
-                          "Receber Presentes: {$normalized['receiving_gifts']}, " .
-                          "Tempo de Qualidade: {$normalized['quality_time']}, " .
-                          "Toque Físico: {$normalized['physical_touch']}. " .
-                          "O objetivo é fornecer uma análise profunda e profissional em português. " .
-                          "Siga rigorosamente esta estrutura: " .
-                          "1. **Seu Perfil Principal**: Identifique a linguagem predominante e explique o que ela significa emocionalmente para você. " .
-                          "2. **Como seu parceiro pode te amar**: Dê 3 exemplos práticos e românticos baseados na sua pontuação. " .
-                          "3. **Conselho de Ouro**: Um conselho final para fortalecer a conexão do casal baseada nesse perfil. " .
-                          "Escreva em um tom acolhedor, romântico e maduro, em primeira pessoa.";
+        // Individual AI
+        $this->generateIndividualAnalysis(Auth::user(), $loveLanguage, $detailedAnalysisData);
 
-                $response = Http::withHeaders([
-                    'Authorization' => "Bearer {$apiKey}",
-                    'HTTP-Referer' => config('app.url'),
-                    'Content-Type' => 'application/json',
-                ])->post('https://openrouter.ai/api/v1/chat/completions', [
-                    'model' => 'google/gemini-2.0-pro-exp-02-05:free', // Or any other model
-                    'messages' => [
-                        ['role' => 'system', 'content' => 'Você é um assistente romântico especialista em linguagens do amor.'],
-                        ['role' => 'user', 'content' => $prompt],
-                    ],
-                ]);
-
-                if ($response->successful()) {
-                    $analysis = $response->json('choices.0.message.content');
-                    $loveLanguage->update(['analysis' => $analysis]);
-                }
-            } catch (\Exception $e) {
-                // Fail silently or log
-            }
+        // Compatibility AI
+        $partner = \App\Models\User::where('id', '!=', Auth::id())->first();
+        if ($partner && $partner->loveLanguage) {
+            $this->generateCompatibilityAnalysis(Auth::user(), $partner);
         }
 
         return response()->json(['success' => true]);

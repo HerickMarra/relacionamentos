@@ -19,15 +19,13 @@
 }
 
 .x-evento{
-    width: 90%;
+    width: 80%;
     height: 100px;
-    background-color: #ffffff;
-    border: 1px solid #f0f0f0;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.03);
-    border-radius: 15px;
+    background-color: var(--subBackground);
+    filter: var(--sombra);
+    border-radius: 10px;;
     display: flex;
-    margin: 12px 0;
-    overflow: hidden;
+    margin:  10px 0;
 }
 
 .x-evento-img{

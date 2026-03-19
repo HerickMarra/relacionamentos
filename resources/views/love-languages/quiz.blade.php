@@ -61,7 +61,11 @@
 
         function selectOption(choice) {
             const q = questions[currentStep];
-            answers.push(choice === 'A' ? q.catA : q.catB);
+            answers.push({
+                question: q.A + " vs " + q.B,
+                choice: choice === 'A' ? q.A : q.B,
+                category: choice === 'A' ? q.catA : q.catB
+            });
             currentStep++;
             updateCard();
         }
