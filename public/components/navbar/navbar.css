@@ -3,10 +3,12 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: var(--subBackground);
-    height: 50px;
+    background-color: #ffffff;
+    border-top: 1px solid #f0f0f0;
+    height: 60px;
     display: flex;
-    z-index: 3;
+    z-index: 1000;
+    box-shadow: 0 -5px 15px rgba(0,0,0,0.03);
 }
 
 .x-NavBar-B{
@@ -15,7 +17,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--text-color);
+    color: #444; /* Darker icons */
 }
 
 .x-NavBar-Add{

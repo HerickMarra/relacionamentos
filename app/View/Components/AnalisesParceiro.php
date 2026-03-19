@@ -22,7 +22,7 @@ class AnalisesParceiro extends Component
      */
     public function render(): View|Closure|string
     {
-        $users_Parceiros = User::with('emotions')->get();
+        $users_Parceiros = User::with(['emotions', 'loveLanguage'])->get();
         // dd($users_Parceiros[0]->las_login);
         return view('components.analises-parceiro', compact('users_Parceiros'));
     }

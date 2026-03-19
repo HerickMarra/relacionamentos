@@ -24,7 +24,7 @@ class UsersSeed extends Seeder
             'username' => 'anne',
             'name' => 'Anne',
             'password' => '123456789',
-            'profile_picture' => '/img/rafah.png'
+            'profile_picture' => '/img/anne.png'
         ]);
 
     }

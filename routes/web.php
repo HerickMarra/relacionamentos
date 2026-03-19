@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\app\EmotionController;
 use App\Http\Controllers\app\IndicatorController;
+use App\Http\Controllers\app\LoveLanguageController;
+use App\Http\Controllers\app\LoveLanguageQuizController;
 use App\Http\Controllers\app\NotificationController;
 use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\painel\EventController;
@@ -87,6 +89,19 @@ Route::group([
     Route::post('/', [RecordController::class, 'get'])->middleware('auth')->name('record');
     Route::post('/create', [RecordController::class, 'create'])->middleware('auth')->name('record.create');
     // Route::post('/', [LoginController::class, 'login'])->name('loginAuth');
+});
+
+
+Route::group([
+    'prefix' => '/love-languages',
+    'middleware' => ['auth', 'lastlogin']
+], function () {
+    Route::get('/', [LoveLanguageController::class, 'index'])->name('love-languages.index');
+    Route::post('/', [LoveLanguageController::class, 'store'])->name('love-languages.store');
+    
+    // Quiz
+    Route::get('/quiz', [LoveLanguageQuizController::class, 'index'])->name('love-languages.quiz');
+    Route::post('/quiz', [LoveLanguageQuizController::class, 'store'])->name('love-languages.quiz.store');
 });
 
 

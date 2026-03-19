@@ -60,4 +60,9 @@ class User extends Authenticatable
         return $this->hasOne(\App\Models\MoodGif::class)
                     ->latestOfMany();
     }
+
+    public function loveLanguage()
+    {
+        return $this->hasOne(LoveLanguage::class);
+    }
 }

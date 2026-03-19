@@ -40,9 +40,9 @@ class NavBar extends Component
                     'link' => '/events'
                 ],
                 [
-                    'color' => "#0494E4",
-                    'icon' =>  "bi bi-gift-fill",
-                    'link' => ''
+                    'color' => "#FF5C00",
+                    'icon' =>  "bi bi-heart-fill",
+                    'link' => '/love-languages'
                 ],
                 // [
                 //     'color' => "#FF5C00",
