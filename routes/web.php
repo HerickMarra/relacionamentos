@@ -86,7 +86,7 @@ Route::group([
     'middleware' => ['auth','lastlogin']
 ], function () {
     Route::get('/', [RecordController::class, 'index'])->middleware('auth')->name('record');
-    Route::post('/', [RecordController::class, 'get'])->middleware('auth')->name('record');
+    Route::post('/', [RecordController::class, 'get'])->middleware('auth')->name('record.fetch');
     Route::post('/create', [RecordController::class, 'create'])->middleware('auth')->name('record.create');
     // Route::post('/', [LoginController::class, 'login'])->name('loginAuth');
 });
