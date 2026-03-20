@@ -75,7 +75,7 @@ trait LoveLanguageAI
                 'HTTP-Referer' => config('app.url'),
                 'Content-Type' => 'application/json',
             ])->post('https://openrouter.ai/api/v1/chat/completions', [
-                'model' => 'google/gemini-2.0-flash-exp:free',
+                'model' => 'arcee-ai/trinity-large-preview:free',
                 'messages' => [
                     ['role' => 'system', 'content' => $systemMessage],
                     ['role' => 'user', 'content' => $prompt],

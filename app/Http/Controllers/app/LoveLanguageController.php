@@ -18,11 +18,11 @@ class LoveLanguageController extends Controller
         $user = Auth::user();
         $loveLanguage = LoveLanguage::firstOrCreate(['user_id' => $user->id]);
         
-        // Robust Auto-Repair: ensure individual and compatibility analyses are present
+        // Robust Auto-Repair: ensure individual and compatibility analyses are valid
         $hasUserResults = ($loveLanguage->words_of_affirmation + $loveLanguage->acts_of_service + $loveLanguage->receiving_gifts + $loveLanguage->quality_time + $loveLanguage->physical_touch) > 0;
         
         // 1. Repair User Individual Analysis
-        if ($hasUserResults && !$loveLanguage->analysis) {
+        if ($hasUserResults && !$this->isAnalysisValid($loveLanguage->analysis)) {
             $this->generateIndividualAnalysis($user, $loveLanguage);
             $loveLanguage->refresh();
         }
@@ -31,8 +31,8 @@ class LoveLanguageController extends Controller
         if ($partner && $partner->loveLanguage) {
             $hasPartnerResults = ($partner->loveLanguage->words_of_affirmation + $partner->loveLanguage->acts_of_service + $partner->loveLanguage->receiving_gifts + $partner->loveLanguage->quality_time + $partner->loveLanguage->physical_touch) > 0;
 
-            // 2. Repair Partner Individual Analysis (if missing)
-            if ($hasPartnerResults && !$partner->loveLanguage->analysis) {
+            // 2. Repair Partner Individual Analysis (if missing or invalid)
+            if ($hasPartnerResults && !$this->isAnalysisValid($partner->loveLanguage->analysis)) {
                 $this->generateIndividualAnalysis($partner, $partner->loveLanguage);
             }
 
@@ -42,13 +42,29 @@ class LoveLanguageController extends Controller
                     ->where('user_id_2', max($user->id, $partner->id))
                     ->first();
 
-                if (!$compatibility) {
+                if (!$compatibility || !$this->isAnalysisValid($compatibility->analysis)) {
                     $this->generateCompatibilityAnalysis($user, $partner);
                 }
             }
         }
 
         return view('love-languages.index', compact('loveLanguage'));
+    }
+
+    private function isAnalysisValid($analysis)
+    {
+        if (empty($analysis)) return false;
+        
+        // If it's too short, it's likely a bug or cut off
+        if (strlen($analysis) < 50) return false;
+        
+        // Check for common error keywords from AI proxies
+        $errorKeywords = ['error', 'exception', 'openrouter', 'limit', 'falha', 'erro', 'calculando', 'processando'];
+        foreach ($errorKeywords as $keyword) {
+            if (stripos($analysis, $keyword) !== false) return false;
+        }
+        
+        return true;
     }
 
     public function store(Request $request)
