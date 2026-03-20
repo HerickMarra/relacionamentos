@@ -17,7 +17,7 @@
 
                 <a href="/emotion/{{$item->id}}"><button  class="clearBtn btnAct X-AnaliseParceiro-Parceiro-Analises-btn">Avaliações</button></a>
                 @if (auth()->user()->id == $item->id)
-                    <a style="margin-left: 10px;" href="#"><button  class="clearBtn btnAct X-AnaliseParceiro-Editar-Perfil-btn">Editar Perfil</button></a>
+                    <a style="margin-left: 10px;" href="{{ route('profile.edit') }}"><button  class="clearBtn btnAct X-AnaliseParceiro-Editar-Perfil-btn">Editar Perfil</button></a>
                 @endif
             </div>
         </div>

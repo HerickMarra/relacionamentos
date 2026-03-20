@@ -5,6 +5,7 @@ use App\Http\Controllers\app\IndicatorController;
 use App\Http\Controllers\app\LoveLanguageController;
 use App\Http\Controllers\app\LoveLanguageQuizController;
 use App\Http\Controllers\app\NotificationController;
+use App\Http\Controllers\app\ProfileController;
 use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\painel\EventController;
 use App\Http\Controllers\painel\MoodGifController;
@@ -102,6 +103,15 @@ Route::group([
     // Quiz
     Route::get('/quiz', [LoveLanguageQuizController::class, 'index'])->name('love-languages.quiz');
     Route::post('/quiz', [LoveLanguageQuizController::class, 'store'])->name('love-languages.quiz.store');
+    Route::post('/reprocess', [LoveLanguageController::class, 'reprocess'])->name('love-languages.reprocess');
+});
+
+Route::group([
+    'prefix' => '/profile',
+    'middleware' => ['auth', 'lastlogin']
+], function () {
+    Route::get('/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::post('/update', [ProfileController::class, 'update'])->name('profile.update');
 });
 
 

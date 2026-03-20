@@ -56,4 +56,29 @@ class LoveLanguageController extends Controller
 
         return redirect()->route('painel')->with('success', 'Linguagens do amor atualizadas!');
     }
+
+    public function reprocess()
+    {
+        $user = Auth::user();
+        $loveLanguage = $user->loveLanguage;
+        
+        if (!$loveLanguage) {
+            return response()->json(['status' => 'error', 'message' => 'Você ainda não fez o teste.'], 400);
+        }
+
+        // 1. Regenerate Individual Analysis
+        $this->generateIndividualAnalysis($user, $loveLanguage);
+
+        // 2. Regenerate Compatibility Analysis
+        $partner = \App\Models\User::where('id', '!=', $user->id)->first();
+        if ($partner && $partner->loveLanguage) {
+            $this->generateCompatibilityAnalysis($user, $partner);
+        }
+
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Análise recalculada com sucesso! ✨',
+            'analysis' => $user->loveLanguage->fresh()->analysis
+        ]);
+    }
 }
