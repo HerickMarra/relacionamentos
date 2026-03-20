@@ -63,11 +63,25 @@
             </p>
         @endif
 
-        @if($partnerLoveLanguage && ($partnerLoveLanguage->words_of_affirmation + $partnerLoveLanguage->acts_of_service + $partnerLoveLanguage->receiving_gifts + $partnerLoveLanguage->quality_time + $partnerLoveLanguage->physical_touch > 0))
+        @php
+            $compatibility = $partner ? \App\Models\CompatibilityAnalysis::where('user_id_1', min(Auth::id(), $partner->id))
+                ->where('user_id_2', max(Auth::id(), $partner->id))
+                ->first() : null;
+        @endphp
+        @if($compatibility && $compatibility->analysis)
+            <div style="margin-top: 15px; padding: 12px; background: rgba(255, 107, 107, 0.1); border-radius: 15px; border: 1px solid rgba(255, 107, 107, 0.2);">
+                <p style="font-size: 0.75em; color: var(--cute-pink); font-weight: 800; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 0.5px;">
+                    <i class="bi bi-fire"></i> Sintonia de Vocês
+                </p>
+                <p style="font-size: 0.85em; color: #eee; line-height: 1.4; margin: 0; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; opacity: 0.9;">
+                    {{ strip_tags((new \Parsedown())->text($compatibility->analysis)) }}
+                </p>
+            </div>
+        @elseif($partnerLoveLanguage && ($partnerLoveLanguage->words_of_affirmation + $partnerLoveLanguage->acts_of_service + $partnerLoveLanguage->receiving_gifts + $partnerLoveLanguage->quality_time + $partnerLoveLanguage->physical_touch > 0))
             <div style="margin-top: 15px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; gap: 10px;">
                 <div style="width: 30px; height: 30px; border-radius: 50%; background-image: url({{ $partner->profile_picture }}); background-size: cover; border: 1px solid var(--cute-pink);"></div>
                 <div style="flex: 1;">
-                    <p style="font-size: 0.75em; color: #888; margin: 0;">Linguagem de <b>{{ $partner->name }}</b>:</p>
+                    <p style="font-size: 0.75em; color: #888; margin: 0;">Linguagem de <b>{{ explode(' ', $partner->name)[0] }}</b>:</p>
                     @php
                         $partnerTop = collect($partnerLoveLanguage->toArray())->only(array_keys($langs))->sortDesc()->take(1);
                     @endphp

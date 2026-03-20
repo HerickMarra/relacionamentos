@@ -74,9 +74,39 @@
     border-color: var(--deep-pink);
 }
 
-.option-btn:active {
-    background: #FF6B6B;
+.option-btn:active, .option-btn.selected {
+    background: var(--deep-pink) !important;
+    border-color: white !important;
+    color: white !important;
+    box-shadow: 0 0 15px rgba(255, 107, 107, 0.4);
+}
+
+.next-btn {
+    background: linear-gradient(135deg, var(--deep-pink), #ff4d4d);
     color: white;
+    padding: 15px 40px;
+    border-radius: 50px;
+    border: none;
+    font-weight: 800;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3);
+    margin-top: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.next-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 25px rgba(255, 107, 107, 0.4);
+}
+
+.next-btn:disabled {
+    background: #444;
+    cursor: not-allowed;
+    box-shadow: none;
+    opacity: 0.5;
 }
 
 .or-divider {

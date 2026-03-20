@@ -16,39 +16,53 @@ class LoveLanguageController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $loveLanguage = LoveLanguage::firstOrCreate(['user_id' => $user->id]);
+        $userLoveLanguage = LoveLanguage::firstOrCreate(['user_id' => $user->id]);
         
         // Robust Auto-Repair: ensure individual and compatibility analyses are valid
-        $hasUserResults = ($loveLanguage->words_of_affirmation + $loveLanguage->acts_of_service + $loveLanguage->receiving_gifts + $loveLanguage->quality_time + $loveLanguage->physical_touch) > 0;
+        $hasUserResults = ($userLoveLanguage->words_of_affirmation + $userLoveLanguage->acts_of_service + $userLoveLanguage->receiving_gifts + $userLoveLanguage->quality_time + $userLoveLanguage->physical_touch) > 0;
         
-        // 1. Repair User Individual Analysis
-        if ($hasUserResults && !$this->isAnalysisValid($loveLanguage->analysis)) {
-            $this->generateIndividualAnalysis($user, $loveLanguage);
-            $loveLanguage->refresh();
+        if ($hasUserResults && !$this->isAnalysisValid($userLoveLanguage->analysis)) {
+            $this->generateIndividualAnalysis($user, $userLoveLanguage);
+            $userLoveLanguage->refresh();
         }
 
         $partner = \App\Models\User::where('id', '!=', $user->id)->first();
-        if ($partner && $partner->loveLanguage) {
-            $hasPartnerResults = ($partner->loveLanguage->words_of_affirmation + $partner->loveLanguage->acts_of_service + $partner->loveLanguage->receiving_gifts + $partner->loveLanguage->quality_time + $partner->loveLanguage->physical_touch) > 0;
+        $partnerLoveLanguage = null;
+        $compatibility = null;
 
-            // 2. Repair Partner Individual Analysis (if missing or invalid)
-            if ($hasPartnerResults && !$this->isAnalysisValid($partner->loveLanguage->analysis)) {
-                $this->generateIndividualAnalysis($partner, $partner->loveLanguage);
-            }
+        if ($partner) {
+            $partnerLoveLanguage = LoveLanguage::where('user_id',  $partner->id)->first();
+            if ($partnerLoveLanguage) {
+                $hasPartnerResults = ($partnerLoveLanguage->words_of_affirmation + $partnerLoveLanguage->acts_of_service + $partnerLoveLanguage->receiving_gifts + $partnerLoveLanguage->quality_time + $partnerLoveLanguage->physical_touch) > 0;
 
-            // 3. Repair Compatibility
-            if ($hasUserResults && $hasPartnerResults) {
-                $compatibility = CompatibilityAnalysis::where('user_id_1', min($user->id, $partner->id))
-                    ->where('user_id_2', max($user->id, $partner->id))
-                    ->first();
+                // Repair Partner Individual
+                if ($hasPartnerResults && !$this->isAnalysisValid($partnerLoveLanguage->analysis)) {
+                    $this->generateIndividualAnalysis($partner, $partnerLoveLanguage);
+                    $partnerLoveLanguage->refresh();
+                }
 
-                if (!$compatibility || !$this->isAnalysisValid($compatibility->analysis)) {
-                    $this->generateCompatibilityAnalysis($user, $partner);
+                // Repair Compatibility
+                if ($hasUserResults && $hasPartnerResults) {
+                    $compatibility = CompatibilityAnalysis::where('user_id_1', min($user->id, $partner->id))
+                        ->where('user_id_2', max($user->id, $partner->id))
+                        ->first();
+
+                    if (!$compatibility || !$this->isAnalysisValid($compatibility->analysis)) {
+                        $this->generateCompatibilityAnalysis($user, $partner);
+                        $compatibility = CompatibilityAnalysis::where('user_id_1', min($user->id, $partner->id))
+                            ->where('user_id_2', max($user->id, $partner->id))
+                            ->first(); // Re-fetch to get new content
+                    }
                 }
             }
         }
 
-        return view('love-languages.index', compact('loveLanguage'));
+        return view('love-languages.index', [
+            'userLoveLanguage' => $userLoveLanguage,
+            'partner' => $partner,
+            'partnerLoveLanguage' => $partnerLoveLanguage,
+            'compatibility' => $compatibility
+        ]);
     }
 
     private function isAnalysisValid($analysis)
@@ -56,7 +70,7 @@ class LoveLanguageController extends Controller
         if (empty($analysis)) return false;
         
         // If it's too short, it's likely a bug or cut off
-        if (strlen($analysis) < 50) return false;
+        if (strlen($analysis) < 20) return false;
         
         // Check for common error keywords from AI proxies
         $errorKeywords = ['error', 'exception', 'openrouter', 'limit', 'falha', 'erro', 'calculando', 'processando'];

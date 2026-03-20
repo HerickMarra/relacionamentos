@@ -14,21 +14,19 @@
         <div style="padding-top: 40px;"></div>
         
         <div class="couple-header">
-            <img src="{{ asset('img/marra.png') }}" alt="Herick" class="couple-photo">
+            <div style="width: 80px; height: 80px; border-radius: 50%; background-image: url({{ auth()->user()->profile_picture }}); background-size: cover; border: 3px solid var(--soft-pink); box-shadow: 0 4px 10px rgba(0,0,0,0.2);"></div>
             <div class="couple-divider"><i class="bi bi-heart-fill"></i></div>
-            <img src="{{ asset('img/anne.png') }}" alt="Anne" class="couple-photo">
+            <div style="width: 80px; height: 80px; border-radius: 50%; background-image: url({{ $partner ? $partner->profile_picture : '' }}); background-size: cover; border: 3px solid var(--soft-pink); box-shadow: 0 4px 10px rgba(0,0,0,0.2);"></div>
         </div>
         
         <h1 class="cute-title">Linguagens do Amor</h1>
         
         @php
-            $loveLanguage = auth()->user()->loveLanguage;
-            $hasResults = $loveLanguage && ($loveLanguage->words_of_affirmation + $loveLanguage->acts_of_service + $loveLanguage->receiving_gifts + $loveLanguage->quality_time + $loveLanguage->physical_touch) > 0;
-            $partner = \App\Models\User::where('id', '!=', auth()->id())->first();
+            $hasUserResults = $userLoveLanguage && ($userLoveLanguage->words_of_affirmation + $userLoveLanguage->acts_of_service + $userLoveLanguage->receiving_gifts + $userLoveLanguage->quality_time + $userLoveLanguage->physical_touch) > 0;
             $partnerName = $partner ? explode(' ', $partner->name)[0] : 'seu amor';
         @endphp
 
-        @if($hasResults)
+        @if($hasUserResults)
             <div class="cute-card">
                 <p style="font-weight: 800; font-size: 1.2em; color: var(--deep-pink); margin: 0;">Seu Perfil de Amor</p>
                 <div class="results-summary">
@@ -45,16 +43,22 @@
                         <div class="bar-item">
                             <div class="bar-header">
                                 <span class="bar-label"><i class="bi {{ $data['icon'] }}"></i> {{ $data['label'] }}</span>
-                                <span style="font-size: 0.75em; font-weight: bold; color: var(--deep-pink)">{{ $loveLanguage->$key }}/5</span>
+                                <span style="font-size: 0.75em; font-weight: bold; color: var(--deep-pink)">{{ $userLoveLanguage->$key }}/5</span>
                             </div>
                             <div class="bar-outer">
-                                <div class="bar-inner" style="width: {{ ($loveLanguage->$key / 5) * 100 }}%"></div>
+                                <div class="bar-inner" style="width: {{ ($userLoveLanguage->$key / 5) * 100 }}%"></div>
                             </div>
                         </div>
                     @endforeach
                 </div>
 
-                <a href="{{ route('love-languages.quiz') }}" class="cute-btn" style="margin-top: 10px; font-size: 0.9em; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);">Refazer Meu Quiz</a>
+                @if($userLoveLanguage->analysis)
+                    <div class="analysis-box" style="margin-top: 20px;">
+                        {!! (new \Parsedown())->text($userLoveLanguage->analysis) !!}
+                    </div>
+                @endif
+
+                <a href="{{ route('love-languages.quiz') }}" class="cute-btn" style="margin-top: 15px; font-size: 0.9em; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);">Refazer Meu Quiz</a>
             </div>
 
             @php
@@ -86,11 +90,7 @@
                     @endif
                 </div>
 
-                @php
-                    $compatibility = \App\Models\CompatibilityAnalysis::where('user_id_1', min(Auth::id(), $partner->id))
-                        ->where('user_id_2', max(Auth::id(), $partner->id))
-                        ->first();
-                @endphp
+                {{-- Compatibility is already passed from controller --}}
 
                 @if($compatibility)
                     <div class="cute-card mt-5" style="border: 1px solid var(--cute-pink); background: linear-gradient(145deg, rgba(38,38,38,0.9), rgba(50,30,30,0.8)) !important; border: 2px solid var(--deep-pink);">
