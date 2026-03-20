@@ -18,12 +18,25 @@ class LoveLanguageController extends Controller
         $user = Auth::user();
         $loveLanguage = LoveLanguage::firstOrCreate(['user_id' => $user->id]);
         
-        // Auto-generate compatibility analysis if missing but both have results
+        // Robust Auto-Repair: ensure individual and compatibility analyses are present
+        $hasUserResults = ($loveLanguage->words_of_affirmation + $loveLanguage->acts_of_service + $loveLanguage->receiving_gifts + $loveLanguage->quality_time + $loveLanguage->physical_touch) > 0;
+        
+        // 1. Repair User Individual Analysis
+        if ($hasUserResults && !$loveLanguage->analysis) {
+            $this->generateIndividualAnalysis($user, $loveLanguage);
+            $loveLanguage->refresh();
+        }
+
         $partner = \App\Models\User::where('id', '!=', $user->id)->first();
         if ($partner && $partner->loveLanguage) {
-            $hasUserResults = ($loveLanguage->words_of_affirmation + $loveLanguage->acts_of_service + $loveLanguage->receiving_gifts + $loveLanguage->quality_time + $loveLanguage->physical_touch) > 0;
             $hasPartnerResults = ($partner->loveLanguage->words_of_affirmation + $partner->loveLanguage->acts_of_service + $partner->loveLanguage->receiving_gifts + $partner->loveLanguage->quality_time + $partner->loveLanguage->physical_touch) > 0;
 
+            // 2. Repair Partner Individual Analysis (if missing)
+            if ($hasPartnerResults && !$partner->loveLanguage->analysis) {
+                $this->generateIndividualAnalysis($partner, $partner->loveLanguage);
+            }
+
+            // 3. Repair Compatibility
             if ($hasUserResults && $hasPartnerResults) {
                 $compatibility = CompatibilityAnalysis::where('user_id_1', min($user->id, $partner->id))
                     ->where('user_id_2', max($user->id, $partner->id))
@@ -31,7 +44,6 @@ class LoveLanguageController extends Controller
 
                 if (!$compatibility) {
                     $this->generateCompatibilityAnalysis($user, $partner);
-                    // Refresh if needed, or just let the view handle the next load
                 }
             }
         }

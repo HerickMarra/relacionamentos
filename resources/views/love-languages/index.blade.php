@@ -54,16 +54,7 @@
                     @endforeach
                 </div>
 
-                @if($loveLanguage->analysis)
-                    <div class="analysis-box" id="user-analysis-box">
-                        {!! (new \Parsedown())->text($loveLanguage->analysis) !!}
-                    </div>
-                @endif
-
-                <div style="display: flex; gap: 10px; margin-top: 15px;">
-                    <a href="{{ route('love-languages.quiz') }}" class="cute-btn" style="flex: 1; font-size: 0.85em; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);">Refazer Quiz</a>
-                    <button onclick="reprocessAI()" class="cute-btn" style="flex: 1; font-size: 0.85em; background: linear-gradient(135deg, rgba(255,107,107,0.2), rgba(255,107,107,0.1)); border: 1px solid var(--deep-pink); color: white;">✨ Recalcular IA</button>
-                </div>
+                <a href="{{ route('love-languages.quiz') }}" class="cute-btn" style="margin-top: 10px; font-size: 0.9em; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);">Refazer Meu Quiz</a>
             </div>
 
             @php
@@ -167,46 +158,5 @@
     <x-NavBar/>
 
     @include('painel.importsScript')
-
-    <div id="ai-loading-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 10000; flex-direction: column; align-items: center; justify-content: center; backdrop-filter: blur(10px);">
-        <div class="cute-loader">
-            <i class="bi bi-heart-fill" style="color: var(--deep-pink); font-size: 2rem;"></i>
-        </div>
-        <p style="color: white; margin-top: 25px; font-weight: 700; font-size: 1.1em; text-align: center; padding: 0 40px;">
-            Sua nova análise está sendo <br> gerada com IA... ✨💎
-        </p>
-    </div>
-
-    <script>
-    function reprocessAI() {
-        if(!confirm('Deseja recalcular sua análise com IA agora? ✨')) return;
-
-        const overlay = document.getElementById('ai-loading-overlay');
-        overlay.style.display = 'flex';
-
-        fetch("{{ route('love-languages.reprocess') }}", {
-            method: "POST",
-            headers: {
-                "X-CSRF-TOKEN": "{{ csrf_token() }}",
-                "Content-Type": "application/json"
-            }
-        })
-        .then(response => response.json())
-        .then(data => {
-            if(data.status === 'success') {
-                alert('Análise atualizada com sucesso! ✨');
-                window.location.reload();
-            } else {
-                alert('Erro: ' + data.message);
-                overlay.style.display = 'none';
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert('Ops! Algo deu errado ao processar a IA.');
-            overlay.style.display = 'none';
-        });
-    }
-    </script>
 </body>
 </html>
