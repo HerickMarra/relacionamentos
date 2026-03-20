@@ -22,6 +22,7 @@
 
 
         <x-AnalisesParceiro/>
+        <x-LoveLanguageDashboardCard />
 
         <x-moodgif/>
         <x-MarcadoresFixo/>

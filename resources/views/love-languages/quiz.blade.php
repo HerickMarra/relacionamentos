@@ -70,21 +70,44 @@
             updateCard();
         }
 
-        async function finishQuiz() {
-            const response = await fetch("{{ route('love-languages.quiz.store') }}", {
+         function finishQuiz() {
+            const container = document.getElementById('quiz-container');
+            container.innerHTML = `
+                <div class="cute-card" style="text-align: center; padding: 50px 20px;">
+                    <div class="heart-animation" style="font-size: 3.5rem; margin-bottom: 20px;">
+                        <i class="bi bi-stars" style="color: var(--cute-pink);"></i>
+                    </div>
+                    <h2 style="color: white; font-weight: 800; margin-bottom: 15px;">Criando sua Mágica...</h2>
+                    <p style="color: #bbb; font-size: 0.95em; line-height: 1.5;">
+                        Nossa IA está analisando cada resposta sua para construir um perfil único e cheio de carinho. <br>
+                        <b>Isso leva apenas alguns segundos! ✨</b>
+                    </p>
+                    <div style="margin-top: 30px;">
+                        <div class="cute-loader"></div>
+                    </div>
+                </div>
+            `;
+
+            fetch("{{ route('love-languages.quiz.store') }}", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
-                    "X-CSRF-TOKEN": "{{ csrf_token() }}"
+                    "X-CSRF-TOKEN": "{{ csrf_token() }}",
                 },
-                body: JSON.stringify({ answers: answers })
+                body: JSON.stringify({ answers: answers }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    window.location.href = "{{ route('love-languages.index') }}";
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Ops! Algo deu errado. Tente novamente.');
+                window.location.reload();
             });
-
-            if (response.ok) {
-                window.location.href = "{{ route('love-languages.index') }}";
-            }
         }
-
         updateCard();
     </script>
     @include('painel.importsScript')

@@ -99,7 +99,7 @@
                 @endphp
 
                 @if($compatibility)
-                    <div class="cute-card" style="margin-top: 20px; background: linear-gradient(135deg, rgba(255, 107, 107, 0.15) 0%, rgba(38, 38, 38, 0.8) 100%) !important; border: 2px solid var(--deep-pink);">
+                    <div class="cute-card mt-5" style="border: 1px solid var(--cute-pink); background: linear-gradient(145deg, rgba(38,38,38,0.9), rgba(50,30,30,0.8)) !important; border: 2px solid var(--deep-pink);">
                         <div class="heart-animation" style="font-size: 2rem; margin-bottom: 5px;"><i class="bi bi-infinity"></i></div>
                         <p style="font-weight: 800; font-size: 1.3em; color: white; margin: 0;">💑 Sintonia do Casal</p>
                         <div class="analysis-box" style="background: rgba(0,0,0,0.2); border: none; font-size: 0.9em; margin-top: 15px;">
